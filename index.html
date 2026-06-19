@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>✨ Divine Marriage Biodata | श्री गणेशाय नमः ✨</title>
+  <title>✨ Divine Marriage Biodata Creator | श्री गणेशाय नमः | Premium Matrimonial</title>
+  <meta name="description" content="Create professional Indian marriage biodata with divine templates. Download as PDF or PNG. Free & easy to use.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Tiro+Devanagari+Hindi&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Tiro+Devanagari+Hindi&family=Tiro+Devanagari+Sanskrit&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
@@ -23,6 +24,7 @@
       --white: #ffffff;
       --green: #2d7a2d;
       --red: #c0392b;
+      --shadow: 0 10px 40px rgba(0,0,0,0.15);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,42 +32,80 @@
     body {
       font-family: 'Inter', 'Poppins', sans-serif;
       background: #f5f0e8;
+      background-image: 
+        radial-gradient(ellipse at 20% 20%, rgba(212,168,83,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(139,26,26,0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(184,134,11,0.03) 0%, transparent 70%);
       min-height: 100vh;
       color: var(--text-dark);
     }
 
-    .app-container {
+    .app-container { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+    /* TOAST NOTIFICATIONS */
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
       display: flex;
       flex-direction: column;
-      height: 100vh;
-      overflow: hidden;
+      gap: 10px;
+    }
+
+    .toast {
+      background: #2d7a2d;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      animation: slideInRight 0.3s ease, fadeOut 0.3s ease 2.5s forwards;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 350px;
+    }
+
+    .toast.warning { background: #e67e22; }
+    .toast.error { background: #c0392b; }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; transform: translateY(-10px); }
     }
 
     /* HEADER */
     .header {
       background: var(--white);
-      padding: 0.7rem 2rem;
+      padding: 0.6rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       border-bottom: 2px solid var(--gold-light);
       box-shadow: 0 2px 15px rgba(139,26,26,0.06);
       z-index: 100;
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .logo-container { display: flex; align-items: center; gap: 10px; }
+    .logo-symbol { font-size: 1.8rem; color: var(--gold); animation: pulse 2s infinite; }
 
-    .logo-symbol { font-size: 2rem; color: var(--gold); }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
 
     .logo-main {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: var(--maroon-dark);
       letter-spacing: 1px;
@@ -73,32 +113,27 @@
     }
 
     .logo-sub {
-      font-size: 0.6rem;
+      font-size: 0.55rem;
       color: var(--gold);
       letter-spacing: 3px;
       text-transform: uppercase;
       font-weight: 500;
     }
 
-    .toolbar {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+    .toolbar { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 
     .btn {
-      padding: 0.5rem 1.2rem;
+      padding: 0.45rem 1rem;
       border-radius: 25px;
       border: none;
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       cursor: pointer;
       font-family: 'Inter', sans-serif;
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       letter-spacing: 0.3px;
       white-space: nowrap;
     }
@@ -130,68 +165,45 @@
       transform: translateY(-2px);
     }
 
-    .btn-add {
-      background: #2d7a2d;
+    .btn-share {
+      background: #25D366;
       color: #fff;
-      border: none;
       font-weight: 600;
     }
 
-    .btn-add:hover {
-      background: #3a9a3a;
-      transform: translateY(-2px);
-    }
+    .btn-share:hover { background: #1ebe5d; transform: translateY(-2px); }
 
-    .btn-remove {
-      background: #c0392b;
+    .btn-save {
+      background: #3498db;
       color: #fff;
-      border: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 0.8rem;
-      transition: all 0.2s;
-      flex-shrink: 0;
     }
 
-    .btn-remove:hover {
-      background: #e74c3c;
-      transform: scale(1.1);
-    }
+    .btn-save:hover { background: #2980b9; transform: translateY(-2px); }
 
-    .theme-select {
-      padding: 0.5rem 1rem;
+    .theme-select, .lang-select {
+      padding: 0.45rem 0.8rem;
       border-radius: 25px;
       border: 1.5px solid #d4c5a0;
       background: var(--white);
       color: var(--text-medium);
       font-family: 'Inter', sans-serif;
       font-weight: 500;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       cursor: pointer;
       outline: none;
     }
 
-    .theme-select:hover { border-color: var(--gold); }
+    .theme-select:hover, .lang-select:hover { border-color: var(--gold); }
 
     /* MAIN LAYOUT */
-    .main-layout {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
+    .main-layout { display: flex; flex: 1; overflow: hidden; }
 
     /* FORM PANEL */
     .form-panel {
       width: 38%;
-      min-width: 400px;
+      min-width: 380px;
       overflow-y: auto;
-      padding: 1.5rem;
+      padding: 1.2rem;
       background: var(--white);
       border-right: 1px solid #ede4d0;
       scroll-behavior: smooth;
@@ -203,48 +215,42 @@
 
     .section-heading {
       font-family: 'Playfair Display', serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--maroon-dark);
-      margin: 1.5rem 0 0.8rem;
-      padding-bottom: 0.4rem;
+      margin: 1.3rem 0 0.7rem;
+      padding-bottom: 0.3rem;
       border-bottom: 2px solid var(--gold-pale);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
     .section-heading:first-child { margin-top: 0; }
+    .section-heading i { color: var(--gold); font-size: 0.85rem; }
 
-    .section-heading i { color: var(--gold); font-size: 0.9rem; }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .form-group.full { grid-column: 1 / -1; }
 
     .form-label {
       display: block;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 600;
       color: var(--text-light);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
     .form-input, .form-select {
       width: 100%;
-      padding: 9px 12px;
+      padding: 8px 10px;
       border-radius: 8px;
       border: 1.5px solid #e0d5c0;
       background: #fefdf9;
       font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-dark);
       transition: all 0.3s ease;
     }
@@ -261,22 +267,18 @@
     .upload-area {
       border: 2px dashed #e0d5c0;
       border-radius: 10px;
-      padding: 1rem;
+      padding: 0.8rem;
       text-align: center;
       cursor: pointer;
       background: #fefdf9;
       transition: all 0.3s;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
-    .upload-area:hover {
-      border-color: var(--gold);
-      background: #fdf8f0;
-    }
-
-    .upload-icon { font-size: 1.5rem; color: var(--gold); margin-bottom: 4px; }
-    .upload-text { font-size: 0.78rem; color: var(--text-medium); font-weight: 500; }
-    .upload-hint { font-size: 0.65rem; color: #b0a090; margin-top: 2px; }
+    .upload-area:hover { border-color: var(--gold); background: #fdf8f0; }
+    .upload-icon { font-size: 1.3rem; color: var(--gold); margin-bottom: 3px; }
+    .upload-text { font-size: 0.75rem; color: var(--text-medium); font-weight: 500; }
+    .upload-hint { font-size: 0.62rem; color: #b0a090; margin-top: 1px; }
 
     .field-counter {
       display: inline-block;
@@ -284,26 +286,57 @@
       color: var(--gold);
       padding: 2px 8px;
       border-radius: 10px;
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       font-weight: 600;
       margin-left: auto;
     }
 
-    /* Custom Fields Area */
+    /* CROP MODAL */
+    .crop-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .crop-modal.active { display: flex; }
+
+    .crop-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 90vw;
+      max-height: 90vh;
+      text-align: center;
+    }
+
+    .crop-container img { max-width: 100%; max-height: 60vh; }
+
+    .crop-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    /* Custom Fields */
     .custom-fields-container {
       background: #fdf8f0;
       border-radius: 12px;
-      padding: 12px;
+      padding: 10px;
       border: 2px dashed #e0d5c0;
-      margin-top: 8px;
-      min-height: 50px;
+      margin-top: 6px;
+      min-height: 40px;
     }
 
     .custom-field-row {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       animation: slideIn 0.3s ease;
     }
 
@@ -314,12 +347,12 @@
 
     .custom-field-row input {
       flex: 1;
-      padding: 9px 12px;
+      padding: 8px 10px;
       border-radius: 8px;
       border: 1.5px solid #e0d5c0;
       background: #fff;
       font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       min-width: 0;
     }
 
@@ -329,53 +362,93 @@
       box-shadow: 0 0 0 3px rgba(184,134,11,0.08);
     }
 
-    .custom-field-row .field-label-input {
-      flex: 1.2;
-    }
-
-    .custom-field-row .field-value-input {
-      flex: 2;
-    }
-
-    .add-field-buttons {
+    .btn-remove {
+      background: #c0392b;
+      color: #fff;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      padding: 0;
       display: flex;
-      gap: 8px;
-      margin-top: 10px;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.7rem;
+      transition: all 0.2s;
+      flex-shrink: 0;
     }
+
+    .btn-remove:hover { background: #e74c3c; transform: scale(1.1); }
+
+    .add-field-buttons { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
 
     .quick-add-btn {
-      padding: 0.4rem 0.8rem;
+      padding: 0.35rem 0.7rem;
       border-radius: 20px;
       border: 1px solid #d4c5a0;
       background: #fff;
       cursor: pointer;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-family: 'Inter', sans-serif;
       transition: all 0.2s;
       white-space: nowrap;
     }
 
-    .quick-add-btn:hover {
-      background: var(--gold-pale);
-      border-color: var(--gold);
+    .quick-add-btn:hover { background: var(--gold-pale); border-color: var(--gold); }
+
+    .btn-add {
+      background: #2d7a2d;
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      padding: 0.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      transition: all 0.3s;
     }
 
-    .empty-custom-message {
-      text-align: center;
-      color: #c4b8a8;
-      font-size: 0.8rem;
-      padding: 15px;
-      font-style: italic;
+    .btn-add:hover { background: #3a9a3a; }
+
+    /* SAVED PROFILES */
+    .saved-profiles {
+      background: #f0fdf0;
+      border-radius: 10px;
+      padding: 8px;
+      margin-top: 8px;
+      border: 1px solid #c8e6c9;
     }
+
+    .saved-profile-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 10px;
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+
+    .saved-profile-item:hover { background: #e8f5e9; }
 
     /* PREVIEW PANEL */
     .preview-panel {
       width: 62%;
       flex: 1;
       overflow-y: auto;
-      padding: 1.5rem;
+      padding: 1.2rem;
       background: #ede4d5;
+      background-image: 
+        linear-gradient(45deg, #e8dcc8 0.5px, transparent 0.5px),
+        linear-gradient(-45deg, #e8dcc8 0.5px, transparent 0.5px);
+      background-size: 30px 30px;
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -390,56 +463,40 @@
       background: #fefdf7;
       width: 210mm;
       min-height: 297mm;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      box-shadow: var(--shadow);
       position: relative;
       padding: 0;
       font-family: 'Cormorant Garamond', 'Playfair Display', serif;
       color: #1a1410;
       overflow: hidden;
+      transition: all 0.5s ease;
     }
 
     .card-border {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
+      top: 12px; left: 12px; right: 12px; bottom: 12px;
       border: 2px solid #d4c5a0;
       pointer-events: none;
       z-index: 1;
       opacity: 0.5;
     }
 
-    .card-inner {
-      position: relative;
-      z-index: 3;
-      padding: 25px 40px 30px;
-    }
+    .card-inner { position: relative; z-index: 3; padding: 25px 40px 30px; }
 
-    .top-auspicious {
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .ganesh-icon-container {
-      display: inline-block;
-      position: relative;
-      margin-bottom: 8px;
-    }
+    .top-auspicious { text-align: center; margin-bottom: 12px; }
+    .ganesh-icon-container { display: inline-block; position: relative; margin-bottom: 6px; }
 
     .ganesh-icon {
-      width: 65px;
-      height: 65px;
+      width: 60px;
+      height: 60px;
       object-fit: contain;
     }
 
     .ganesh-glow {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 75px;
-      height: 75px;
+      width: 70px; height: 70px;
       background: radial-gradient(circle, rgba(212,168,83,0.25) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
@@ -447,35 +504,35 @@
 
     .shubh-ganesh-text {
       font-family: 'Tiro Devanagari Hindi', serif;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: var(--maroon);
       letter-spacing: 2px;
       font-weight: 600;
-      margin-top: 5px;
+      margin-top: 4px;
     }
 
     .gold-line {
-      width: 100px;
+      width: 90px;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 6px auto 0;
+      margin: 5px auto 0;
     }
 
     .biodata-main-title {
       text-align: center;
       font-family: 'Great Vibes', cursive;
-      font-size: 2.6rem;
+      font-size: 2.4rem;
       color: var(--maroon);
       font-weight: 400;
-      margin: 5px 0 18px;
+      margin: 3px 0 15px;
       letter-spacing: 2px;
     }
 
     .section-divider {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin: 14px 0 10px;
+      gap: 8px;
+      margin: 12px 0 8px;
     }
 
     .divider-line {
@@ -486,7 +543,7 @@
 
     .divider-title {
       font-family: 'Playfair Display', serif;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--maroon);
       letter-spacing: 1.5px;
@@ -495,30 +552,24 @@
     }
 
     .divider-dot {
-      width: 4px;
-      height: 4px;
+      width: 4px; height: 4px;
       background: var(--gold);
       border-radius: 50%;
       flex-shrink: 0;
     }
 
-    .personal-layout {
-      display: flex;
-      gap: 15px;
-      align-items: flex-start;
-    }
-
+    .personal-layout { display: flex; gap: 12px; align-items: flex-start; }
     .personal-info-grid { flex: 1; }
 
     .photo-container {
       flex-shrink: 0;
       text-align: center;
-      min-width: 110px;
+      min-width: 100px;
     }
 
     .profile-photo {
-      width: 110px;
-      height: 140px;
+      width: 100px;
+      height: 130px;
       object-fit: cover;
       border: 2px solid var(--gold-light);
       border-radius: 3px;
@@ -527,39 +578,24 @@
     }
 
     .no-photo-placeholder {
-      width: 110px;
-      height: 140px;
+      width: 100px;
+      height: 130px;
       border: 2px dashed #d4c5a0;
       border-radius: 3px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #c4b8a8;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       background: #fdf8f0;
       text-align: center;
       line-height: 1.3;
     }
 
-    .photo-label {
-      font-size: 0.6rem;
-      color: var(--text-light);
-      margin-top: 3px;
-      letter-spacing: 1px;
-    }
+    .photo-label { font-size: 0.55rem; color: var(--text-light); margin-top: 2px; letter-spacing: 1px; }
 
-    .info-row {
-      display: flex;
-      padding: 1.5px 0;
-      font-size: 0.82rem;
-      line-height: 1.6;
-    }
-
-    .info-row-half {
-      display: flex;
-      gap: 12px;
-    }
-
+    .info-row { display: flex; padding: 1.5px 0; font-size: 0.8rem; line-height: 1.6; }
+    .info-row-half { display: flex; gap: 10px; }
     .info-row-half .info-row { flex: 1; }
 
     .info-label {
@@ -567,66 +603,58 @@
       font-weight: 600;
       min-width: 40%;
       text-align: right;
-      padding-right: 10px;
-      font-size: 0.78rem;
+      padding-right: 8px;
+      font-size: 0.75rem;
       letter-spacing: 0.3px;
     }
 
-    .info-colon { color: #c4b8a8; margin: 0 3px; }
-
-    .info-value {
-      color: #1a1410;
-      font-weight: 500;
-      text-align: left;
-      font-size: 0.82rem;
-    }
+    .info-colon { color: #c4b8a8; margin: 0 2px; }
+    .info-value { color: #1a1410; font-weight: 500; text-align: left; font-size: 0.8rem; }
 
     .bottom-auspicious {
       text-align: center;
-      margin-top: 18px;
-      padding-top: 10px;
+      margin-top: 15px;
+      padding-top: 8px;
       border-top: 1px solid #e8dcc8;
     }
 
     .mangalmay-text {
       font-family: 'Tiro Devanagari Hindi', serif;
       color: var(--maroon);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       letter-spacing: 1px;
       font-weight: 500;
     }
 
-    .shubh-symbols {
-      color: var(--gold);
-      font-size: 0.65rem;
-      letter-spacing: 4px;
-      margin-top: 3px;
-    }
-
+    .shubh-symbols { color: var(--gold); font-size: 0.6rem; letter-spacing: 4px; margin-top: 2px; }
     .hidden-section { display: none; }
 
-    /* Tag for custom section */
-    .custom-section-tag {
-      display: inline-block;
-      background: #e8f5e9;
-      color: #2d7a2d;
-      padding: 2px 8px;
-      border-radius: 10px;
-      font-size: 0.6rem;
-      font-weight: 600;
-      margin-left: 8px;
+    /* QR Code */
+    .qr-container {
+      text-align: center;
+      margin-top: 8px;
     }
 
+    .qr-code {
+      width: 60px;
+      height: 60px;
+      display: inline-block;
+    }
+
+    /* Mobile Responsive */
     @media (max-width: 1000px) {
       .main-layout { flex-direction: column; }
       .form-panel, .preview-panel { width: 100%; min-width: 100%; max-height: 50vh; }
       .biodata-card { width: 100%; min-height: auto; }
       .card-inner { padding: 15px 20px; }
+      .header { padding: 0.5rem 1rem; }
+      .toolbar { gap: 4px; }
+      .btn { padding: 0.4rem 0.7rem; font-size: 0.7rem; }
     }
 
     @media print {
       body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
-      .header, .form-panel { display: none !important; }
+      .header, .form-panel, .toast-container, .crop-modal { display: none !important; }
       .preview-panel {
         width: 100% !important;
         padding: 0 !important;
@@ -641,7 +669,6 @@
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
-      .card-border { border: 2px solid #d4c5a0 !important; }
       @page { size: A4; margin: 0; }
     }
   </style>
@@ -649,6 +676,22 @@
 <body>
 
 <div class="app-container">
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- CROP MODAL -->
+  <div class="crop-modal" id="cropModal">
+    <div class="crop-container">
+      <h3 style="margin-bottom:15px; color:var(--maroon);">✂️ Crop Profile Photo</h3>
+      <img id="cropImage" style="max-width:100%; max-height:60vh;">
+      <p style="font-size:0.75rem; color:#888; margin-top:8px;">Drag to position • Scroll to zoom</p>
+      <div class="crop-actions">
+        <button class="btn btn-outline" onclick="closeCropModal()">Cancel</button>
+        <button class="btn btn-gold" onclick="applyCrop()">✅ Apply Crop</button>
+      </div>
+    </div>
+  </div>
+
   <!-- HEADER -->
   <header class="header">
     <div class="logo-container">
@@ -659,16 +702,30 @@
       </div>
     </div>
     <div class="toolbar">
-      <select id="themeSelect" class="theme-select">
-        <option value="cream-gold">✨ Cream & Gold</option>
-        <option value="white-maroon">🤍 White & Maroon</option>
-        <option value="ivory-saffron">🧡 Ivory & Saffron</option>
+      <select id="langSelect" class="lang-select">
+        <option value="en">🇬🇧 English</option>
+        <option value="hi">🇮🇳 हिंदी</option>
+        <option value="gu">🇮🇳 ગુજરાતી</option>
+        <option value="mr">🇮🇳 मराठी</option>
       </select>
+      <select id="themeSelect" class="theme-select">
+        <option value="cream-gold">✨ Cream Gold</option>
+        <option value="white-maroon">🤍 White Maroon</option>
+        <option value="ivory-saffron">🧡 Ivory Saffron</option>
+        <option value="gujarati-style">🪔 Gujarati Style</option>
+        <option value="south-indian">🪷 South Indian</option>
+      </select>
+      <button class="btn btn-save" onclick="saveProfile()" title="Save Profile">
+        <i class="fas fa-save"></i> Save
+      </button>
+      <button class="btn btn-share" onclick="shareViaWhatsApp()" title="Share on WhatsApp">
+        <i class="fab fa-whatsapp"></i> Share
+      </button>
       <button id="downloadPDF" class="btn btn-gold">
-        <i class="fas fa-file-pdf"></i> Download PDF
+        <i class="fas fa-file-pdf"></i> PDF
       </button>
       <button id="downloadPNG" class="btn btn-outline">
-        <i class="fas fa-image"></i> PNG Image
+        <i class="fas fa-image"></i> PNG
       </button>
       <button id="printBtn" class="btn btn-outline">
         <i class="fas fa-print"></i> Print
@@ -681,27 +738,32 @@
     <!-- FORM PANEL -->
     <div class="form-panel" id="formPanel">
       
+      <!-- Saved Profiles -->
+      <div class="saved-profiles" id="savedProfiles" style="display:none;">
+        <strong style="font-size:0.8rem; color:var(--maroon);">💾 Saved Profiles</strong>
+        <div id="savedProfilesList"></div>
+      </div>
+
       <!-- Auspicious Settings -->
       <div class="section-heading">
-        <i class="fas fa-om"></i> 🕉️ शुभ लेखन
+        <i class="fas fa-om"></i> 🕉️ <span data-i18n="auspicious">Auspicious Settings</span>
       </div>
       <div class="form-grid">
         <div class="form-group full">
-          <label class="form-label">शीर्ष शुभ लेखन (Top Auspicious)</label>
+          <label class="form-label" data-i18n="topAuspicious">Top Auspicious Text</label>
           <input type="text" id="auspText" class="form-input" 
                  value="॥ श्री गणेशाय नमः ॥" placeholder="Optional">
         </div>
         <div class="form-group full">
-          <label class="form-label">श्री गणेश / Divine Symbol</label>
+          <label class="form-label" data-i18n="divineSymbol">Divine Symbol</label>
           <div class="upload-area" onclick="document.getElementById('headerIconInput').click()">
             <div class="upload-icon">🕉️</div>
-            <div class="upload-text">Upload Ganesh Ji / Divine Symbol</div>
-            <div class="upload-hint">Optional - Ganesha, Om, Swastik</div>
+            <div class="upload-text" data-i18n="uploadDivine">Upload Ganesh Ji / Divine Symbol</div>
             <input type="file" id="headerIconInput" accept="image/*" style="display:none;">
           </div>
         </div>
         <div class="form-group full">
-          <label class="form-label">अंतिम शुभ लेखन (Bottom Blessing)</label>
+          <label class="form-label" data-i18n="bottomBlessing">Bottom Blessing</label>
           <input type="text" id="footerText" class="form-input" 
                  value="॥ शुभ विवाह मंगलमय हो ॥" placeholder="Optional">
         </div>
@@ -709,66 +771,40 @@
 
       <!-- Photo -->
       <div class="section-heading">
-        <i class="fas fa-camera"></i> 📷 फोटो (Photo)
+        <i class="fas fa-camera"></i> 📷 <span data-i18n="photo">Photo</span>
       </div>
       <div class="upload-area" onclick="document.getElementById('photoInput').click()">
         <div class="upload-icon">📸</div>
-        <div class="upload-text">Upload Passport Size Photo</div>
-        <div class="upload-hint">Optional - Shows placeholder if empty</div>
+        <div class="upload-text" data-i18n="uploadPhoto">Upload Passport Size Photo</div>
         <input type="file" id="photoInput" accept="image/*" style="display:none;">
       </div>
-      <button id="removePhotoBtn" class="btn btn-outline" style="width:100%; margin-top:5px; justify-content:center;">
-        <i class="fas fa-times"></i> Remove Photo
-      </button>
+      <div style="display:flex; gap:5px; margin-top:5px;">
+        <button id="removePhotoBtn" class="btn btn-outline" style="flex:1; justify-content:center;">
+          <i class="fas fa-times"></i> <span data-i18n="removePhoto">Remove</span>
+        </button>
+        <button class="btn btn-outline" style="flex:1; justify-content:center;" onclick="openCropModal()">
+          <i class="fas fa-crop"></i> <span data-i18n="cropPhoto">Crop</span>
+        </button>
+      </div>
 
       <!-- Personal Details -->
       <div class="section-heading">
-        <i class="fas fa-user"></i> 👤 Personal Details
+        <i class="fas fa-user"></i> 👤 <span data-i18n="personal">Personal Details</span>
         <span class="field-counter" id="personalCount">0/15</span>
       </div>
       <div class="form-grid">
-        <div class="form-group full">
-          <label class="form-label">Full Name</label>
-          <input type="text" id="fullName" class="form-input personal-field" value="Vineet Kumar Sharma">
-        </div>
+        <div class="form-group full"><label class="form-label" data-i18n="fullName">Full Name</label><input type="text" id="fullName" class="form-input personal-field" value="Vineet Kumar Sharma"></div>
+        <div class="form-group"><label class="form-label" data-i18n="dob">Date of Birth</label><input type="text" id="dob" class="form-input personal-field" value="22 February 1995"></div>
+        <div class="form-group"><label class="form-label" data-i18n="tob">Time of Birth</label><input type="text" id="tob" class="form-input personal-field" value="12:45 AM"></div>
+        <div class="form-group"><label class="form-label" data-i18n="pob">Place of Birth</label><input type="text" id="pob" class="form-input personal-field" value="Pune, Maharashtra"></div>
+        <div class="form-group"><label class="form-label" data-i18n="birthName">Birth Name</label><input type="text" id="birthName" class="form-input personal-field" value="Jeevan"></div>
+        <div class="form-group"><label class="form-label" data-i18n="height">Height</label><input type="text" id="height" class="form-input personal-field" value="5 ft 6 in"></div>
+        <div class="form-group"><label class="form-label" data-i18n="complexion">Complexion</label><input type="text" id="complexion" class="form-input personal-field" value="Fair"></div>
+        <div class="form-group"><label class="form-label" data-i18n="bloodGroup">Blood Group</label><input type="text" id="bloodGroup" class="form-input personal-field" value="A -ve"></div>
+        <div class="form-group"><label class="form-label" data-i18n="motherTongue">Mother Tongue</label><input type="text" id="motherTongue" class="form-input personal-field" value="Hindi"></div>
+        <div class="form-group"><label class="form-label" data-i18n="diet">Diet</label><input type="text" id="diet" class="form-input personal-field" value="Vegetarian"></div>
         <div class="form-group">
-          <label class="form-label">Date of Birth</label>
-          <input type="text" id="dob" class="form-input personal-field" value="22 February 1995">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Time of Birth</label>
-          <input type="text" id="tob" class="form-input personal-field" value="12:45 AM">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Place of Birth</label>
-          <input type="text" id="pob" class="form-input personal-field" value="Pune, Maharashtra">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Birth Name</label>
-          <input type="text" id="birthName" class="form-input personal-field" value="Jeevan">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Height</label>
-          <input type="text" id="height" class="form-input personal-field" value="5 ft 6 in">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Complexion</label>
-          <input type="text" id="complexion" class="form-input personal-field" value="Fair">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Blood Group</label>
-          <input type="text" id="bloodGroup" class="form-input personal-field" value="A -ve">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Mother Tongue</label>
-          <input type="text" id="motherTongue" class="form-input personal-field" value="Hindi">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Diet</label>
-          <input type="text" id="diet" class="form-input personal-field" value="Vegetarian">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Marital Status</label>
+          <label class="form-label" data-i18n="maritalStatus">Marital Status</label>
           <select id="maritalStatus" class="form-select personal-field">
             <option value="">-- Optional --</option>
             <option value="Never Married" selected>Never Married</option>
@@ -776,123 +812,80 @@
             <option value="Widowed">Widowed</option>
           </select>
         </div>
-        <div class="form-group">
-          <label class="form-label">Hobbies</label>
-          <input type="text" id="hobbies" class="form-input personal-field" value="Reading, Traveling, Music">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Education</label>
-          <input type="text" id="education" class="form-input personal-field" value="B.Tech (Computer Science)">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Occupation</label>
-          <input type="text" id="occupation" class="form-input personal-field" value="Senior Software Engineer">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Annual Income</label>
-          <input type="text" id="income" class="form-input personal-field" value="18 LPA">
-        </div>
+        <div class="form-group"><label class="form-label" data-i18n="hobbies">Hobbies</label><input type="text" id="hobbies" class="form-input personal-field" value="Reading, Traveling, Music"></div>
+        <div class="form-group"><label class="form-label" data-i18n="education">Education</label><input type="text" id="education" class="form-input personal-field" value="B.Tech (Computer Science)"></div>
+        <div class="form-group"><label class="form-label" data-i18n="occupation">Occupation</label><input type="text" id="occupation" class="form-input personal-field" value="Senior Software Engineer"></div>
+        <div class="form-group"><label class="form-label" data-i18n="income">Annual Income</label><input type="text" id="income" class="form-input personal-field" value="18 LPA"></div>
       </div>
 
       <!-- Religious -->
       <div class="section-heading">
-        <i class="fas fa-pray"></i> 🕉️ Religious & Astro
+        <i class="fas fa-pray"></i> 🕉️ <span data-i18n="religious">Religious & Astro</span>
         <span class="field-counter" id="religiousCount">0/8</span>
       </div>
       <div class="form-grid">
-        <div class="form-group"><label class="form-label">Religion</label><input type="text" id="religion" class="form-input religious-field" value="Hindu"></div>
-        <div class="form-group"><label class="form-label">Caste</label><input type="text" id="caste" class="form-input religious-field" value="Kshatriya"></div>
-        <div class="form-group"><label class="form-label">Sub-Caste</label><input type="text" id="subCaste" class="form-input religious-field" value="Gaur"></div>
-        <div class="form-group"><label class="form-label">Gotra</label><input type="text" id="gotra" class="form-input religious-field" value="Bharadwaj"></div>
-        <div class="form-group"><label class="form-label">Rashi</label><input type="text" id="rashi" class="form-input religious-field" value="Mesh (Aries)"></div>
-        <div class="form-group"><label class="form-label">Nakshatra</label><input type="text" id="nakshatra" class="form-input religious-field" value="Swati"></div>
-        <div class="form-group"><label class="form-label">Manglik</label><input type="text" id="manglik" class="form-input religious-field" value="Manglik"></div>
-        <div class="form-group"><label class="form-label">Kuldevta</label><input type="text" id="kuldevta" class="form-input religious-field" value="Maa Kali"></div>
+        <div class="form-group"><label class="form-label" data-i18n="religion">Religion</label><input type="text" id="religion" class="form-input religious-field" value="Hindu"></div>
+        <div class="form-group"><label class="form-label" data-i18n="caste">Caste</label><input type="text" id="caste" class="form-input religious-field" value="Kshatriya"></div>
+        <div class="form-group"><label class="form-label" data-i18n="subCaste">Sub-Caste</label><input type="text" id="subCaste" class="form-input religious-field" value="Gaur"></div>
+        <div class="form-group"><label class="form-label" data-i18n="gotra">Gotra</label><input type="text" id="gotra" class="form-input religious-field" value="Bharadwaj"></div>
+        <div class="form-group"><label class="form-label" data-i18n="rashi">Rashi</label><input type="text" id="rashi" class="form-input religious-field" value="Mesh (Aries)"></div>
+        <div class="form-group"><label class="form-label" data-i18n="nakshatra">Nakshatra</label><input type="text" id="nakshatra" class="form-input religious-field" value="Swati"></div>
+        <div class="form-group"><label class="form-label" data-i18n="manglik">Manglik</label><input type="text" id="manglik" class="form-input religious-field" value="Manglik"></div>
+        <div class="form-group"><label class="form-label" data-i18n="kuldevta">Kuldevta</label><input type="text" id="kuldevta" class="form-input religious-field" value="Maa Kali"></div>
       </div>
 
       <!-- Family -->
       <div class="section-heading">
-        <i class="fas fa-home"></i> 👨‍👩‍👧‍👦 Family
+        <i class="fas fa-home"></i> 👨‍👩‍👧‍👦 <span data-i18n="family">Family</span>
         <span class="field-counter" id="familyCount">0/8</span>
       </div>
       <div class="form-grid">
-        <div class="form-group"><label class="form-label">Father's Name</label><input type="text" id="fatherName" class="form-input family-field" value="Mr. Guru Kumar Sharma"></div>
-        <div class="form-group"><label class="form-label">Father's Occ.</label><input type="text" id="fatherOcc" class="form-input family-field" value="Farmer & Businessman"></div>
-        <div class="form-group"><label class="form-label">Mother's Name</label><input type="text" id="motherName" class="form-input family-field" value="Mrs. Leena Sharma"></div>
-        <div class="form-group"><label class="form-label">Mother's Occ.</label><input type="text" id="motherOcc" class="form-input family-field" value="Homemaker"></div>
-        <div class="form-group"><label class="form-label">Brothers</label><input type="text" id="brothers" class="form-input family-field" value="2 Elder (Married)"></div>
-        <div class="form-group"><label class="form-label">Sisters</label><input type="text" id="sisters" class="form-input family-field" value="1 Elder, 1 Younger"></div>
-        <div class="form-group"><label class="form-label">Family Type</label><input type="text" id="familyType" class="form-input family-field" value="Joint Family"></div>
-        <div class="form-group"><label class="form-label">Native Place</label><input type="text" id="nativePlace" class="form-input family-field" value="Pune, Maharashtra"></div>
+        <div class="form-group"><label class="form-label" data-i18n="fatherName">Father's Name</label><input type="text" id="fatherName" class="form-input family-field" value="Mr. Guru Kumar Sharma"></div>
+        <div class="form-group"><label class="form-label" data-i18n="fatherOcc">Father's Occ.</label><input type="text" id="fatherOcc" class="form-input family-field" value="Farmer & Businessman"></div>
+        <div class="form-group"><label class="form-label" data-i18n="motherName">Mother's Name</label><input type="text" id="motherName" class="form-input family-field" value="Mrs. Leena Sharma"></div>
+        <div class="form-group"><label class="form-label" data-i18n="motherOcc">Mother's Occ.</label><input type="text" id="motherOcc" class="form-input family-field" value="Homemaker"></div>
+        <div class="form-group"><label class="form-label" data-i18n="brothers">Brothers</label><input type="text" id="brothers" class="form-input family-field" value="2 Elder (Married)"></div>
+        <div class="form-group"><label class="form-label" data-i18n="sisters">Sisters</label><input type="text" id="sisters" class="form-input family-field" value="1 Elder, 1 Younger"></div>
+        <div class="form-group"><label class="form-label" data-i18n="familyType">Family Type</label><input type="text" id="familyType" class="form-input family-field" value="Joint Family"></div>
+        <div class="form-group"><label class="form-label" data-i18n="nativePlace">Native Place</label><input type="text" id="nativePlace" class="form-input family-field" value="Pune, Maharashtra"></div>
       </div>
 
       <!-- Contact -->
       <div class="section-heading">
-        <i class="fas fa-phone"></i> 📞 Contact
+        <i class="fas fa-phone"></i> 📞 <span data-i18n="contact">Contact</span>
         <span class="field-counter" id="contactCount">0/4</span>
       </div>
       <div class="form-grid">
-        <div class="form-group"><label class="form-label">Mobile</label><input type="text" id="mobile" class="form-input contact-field" value="+91 98220 12345"></div>
-        <div class="form-group"><label class="form-label">Email</label><input type="text" id="email" class="form-input contact-field" value="vineet.sharma@email.com"></div>
-        <div class="form-group full"><label class="form-label">Current Address</label><input type="text" id="currentAddr" class="form-input contact-field" value="12, Greenwood Society, Wakad, Pune - 411057"></div>
-        <div class="form-group full"><label class="form-label">Permanent Address</label><input type="text" id="permAddr" class="form-input contact-field" value="Village Devgarh, District Satara, Maharashtra"></div>
+        <div class="form-group"><label class="form-label" data-i18n="mobile">Mobile</label><input type="text" id="mobile" class="form-input contact-field" value="+91 98220 12345"></div>
+        <div class="form-group"><label class="form-label" data-i18n="email">Email</label><input type="text" id="email" class="form-input contact-field" value="vineet.sharma@email.com"></div>
+        <div class="form-group full"><label class="form-label" data-i18n="currentAddr">Current Address</label><input type="text" id="currentAddr" class="form-input contact-field" value="12, Greenwood Society, Wakad, Pune - 411057"></div>
+        <div class="form-group full"><label class="form-label" data-i18n="permAddr">Permanent Address</label><input type="text" id="permAddr" class="form-input contact-field" value="Village Devgarh, District Satara, Maharashtra"></div>
       </div>
 
-      <!-- ===== CUSTOM FIELDS SECTION ===== -->
+      <!-- Custom Fields -->
       <div class="section-heading">
-        <i class="fas fa-plus-circle"></i> ✨ Additional Custom Fields
+        <i class="fas fa-plus-circle"></i> ✨ <span data-i18n="customFields">Additional Custom Fields</span>
         <span class="field-counter" id="customCount">0 fields</span>
       </div>
-      <p style="font-size:0.7rem; color:#888; margin-bottom:8px;">
-        Add any extra information - Grandfather, Grandmother, Uncle, Achievements, etc.
-      </p>
-      
-      <!-- Quick Add Buttons -->
       <div class="add-field-buttons">
-        <button class="quick-add-btn" onclick="addCustomField('Paternal Grandfather', '')">
-          👴 Paternal Grandfather
-        </button>
-        <button class="quick-add-btn" onclick="addCustomField('Paternal Grandmother', '')">
-          👵 Paternal Grandmother
-        </button>
-        <button class="quick-add-btn" onclick="addCustomField('Maternal Grandfather', '')">
-          👴 Maternal Grandfather
-        </button>
-        <button class="quick-add-btn" onclick="addCustomField('Maternal Grandmother', '')">
-          👵 Maternal Grandmother
-        </button>
-        <button class="quick-add-btn" onclick="addCustomField('Mama (Uncle)', '')">
-          👨 Mama (Uncle)
-        </button>
-        <button class="quick-add-btn" onclick="addCustomField('Chacha (Uncle)', '')">
-          👨 Chacha (Uncle)
-        </button>
-        <button class="quick-add-btn" onclick="addCustomField('Bua (Aunt)', '')">
-          👩 Bua (Aunt)
-        </button>
-        <button class="quick-add-btn" onclick="addCustomField('Mausi (Aunt)', '')">
-          👩 Mausi (Aunt)
-        </button>
-        <button class="quick-add-btn" onclick="addCustomField('Achievements', '')">
-          🏆 Achievements
-        </button>
-        <button class="quick-add-btn" onclick="addCustomField('About Me', '')">
-          💬 About Me
-        </button>
-        <button class="quick-add-btn" onclick="addCustomField('Partner Preference', '')">
-          💑 Partner Preference
-        </button>
+        <button class="quick-add-btn" onclick="addCustomField('Paternal Grandfather', '')">👴 Paternal Grandfather</button>
+        <button class="quick-add-btn" onclick="addCustomField('Paternal Grandmother', '')">👵 Paternal Grandmother</button>
+        <button class="quick-add-btn" onclick="addCustomField('Maternal Grandfather', '')">👴 Maternal Grandfather</button>
+        <button class="quick-add-btn" onclick="addCustomField('Maternal Grandmother', '')">👵 Maternal Grandmother</button>
+        <button class="quick-add-btn" onclick="addCustomField('Mama (Uncle)', '')">👨 Mama</button>
+        <button class="quick-add-btn" onclick="addCustomField('Chacha (Uncle)', '')">👨 Chacha</button>
+        <button class="quick-add-btn" onclick="addCustomField('Bua (Aunt)', '')">👩 Bua</button>
+        <button class="quick-add-btn" onclick="addCustomField('Mausi (Aunt)', '')">👩 Mausi</button>
+        <button class="quick-add-btn" onclick="addCustomField('Achievements', '')">🏆 Achievements</button>
+        <button class="quick-add-btn" onclick="addCustomField('About Me', '')">💬 About Me</button>
       </div>
-
-      <!-- Custom Fields Container -->
       <div class="custom-fields-container" id="customFieldsContainer">
-        <div class="empty-custom-message" id="emptyCustomMsg">
-          <i class="fas fa-lightbulb"></i> Click quick-add buttons above or "Add Custom Field" below
+        <div class="empty-custom-message" style="text-align:center;color:#c4b8a8;font-size:0.75rem;padding:10px;font-style:italic;">
+          <i class="fas fa-lightbulb"></i> Click quick-add buttons or "Add Custom Field"
         </div>
       </div>
-
-      <button class="btn btn-add" style="width:100%; margin-top:8px; justify-content:center;" onclick="addCustomField('', '')">
-        <i class="fas fa-plus"></i> Add Blank Custom Field
+      <button class="btn-add" onclick="addCustomField('', '')">
+        <i class="fas fa-plus"></i> <span data-i18n="addCustomField">Add Blank Custom Field</span>
       </button>
       
       <br><br>
@@ -905,7 +898,7 @@
         <div class="card-inner">
           
           <div class="top-auspicious" id="topAuspicious">
-            <div class="ganesh-icon-container" id="ganeshIconContainer">
+            <div class="ganesh-icon-container">
               <div class="ganesh-glow"></div>
               <img id="previewHeaderIcon" class="ganesh-icon" 
                    src="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23b8860b' stroke-width='2.5'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='%23b8860b' font-size='35' font-family='serif'%3E🕉️%3C/text%3E%3C/svg%3E" 
@@ -925,9 +918,7 @@
             </div>
             <div class="personal-layout">
               <div class="personal-info-grid" id="previewPersonal"></div>
-              <div class="photo-container" id="photoContainer">
-                <div id="photoDisplay"></div>
-              </div>
+              <div class="photo-container"><div id="photoDisplay"></div></div>
             </div>
           </div>
 
@@ -949,7 +940,6 @@
             <div id="previewFamily"></div>
           </div>
 
-          <!-- CUSTOM SECTION -->
           <div id="customSection">
             <div class="section-divider">
               <span class="divider-dot"></span><span class="divider-line"></span>
@@ -968,6 +958,11 @@
             <div id="previewContact"></div>
           </div>
 
+          <!-- QR Code -->
+          <div class="qr-container" id="qrContainer">
+            <canvas id="qrCode" class="qr-code"></canvas>
+          </div>
+
           <div class="bottom-auspicious" id="bottomAuspicious">
             <div id="previewFooter" class="mangalmay-text">॥ शुभ विवाह मंगलमय हो ॥</div>
             <div class="shubh-symbols">🪷 ✦ 🪷</div>
@@ -981,10 +976,16 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 <script>
 (function() {
-  // ===== ULTIMATE SMART BIODATA ENGINE WITH CUSTOM FIELDS =====
-  
+  // ===================================================================
+  // ULTIMATE PRODUCTION-READY BIODATA ENGINE
+  // Features: Smart Display, Auto-Save, Multi-Language, QR Code,
+  //           Crop Tool, Share, Save/Load Profiles, Multiple Themes
+  // ===================================================================
+
+  // ----- DATA STORE -----
   const fieldDefs = {
     personal: {
       fullName: 'Full Name', dob: 'Date of Birth', tob: 'Time of Birth',
@@ -1011,9 +1012,10 @@
   };
 
   const data = {};
-  let customFields = []; // Array of {label: '', value: ''}
+  let customFields = [];
   let photoDataUrl = null;
   let headerIconDataUrl = null;
+  let savedProfiles = [];
 
   // Initialize
   Object.values(fieldDefs).forEach(cat => {
@@ -1039,24 +1041,95 @@
     footerText: '॥ शुभ विवाह मंगलमय हो ॥'
   };
 
-  Object.keys(defaults).forEach(key => {
-    data[key] = defaults[key];
-    const el = document.getElementById(key);
-    if (el) el.value = defaults[key];
-  });
+  // Load saved data
+  function loadFromStorage() {
+    const saved = localStorage.getItem('biodataData');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        Object.keys(parsed.data || {}).forEach(key => {
+          data[key] = parsed.data[key];
+          const el = document.getElementById(key);
+          if (el && key !== 'maritalStatus') el.value = parsed.data[key] || '';
+        });
+        if (parsed.data.maritalStatus) {
+          const msEl = document.getElementById('maritalStatus');
+          if (msEl) msEl.value = parsed.data.maritalStatus;
+        }
+        customFields = parsed.customFields || [];
+        photoDataUrl = parsed.photoDataUrl || null;
+        savedProfiles = parsed.savedProfiles || [];
+        if (parsed.auspText) document.getElementById('auspText').value = parsed.auspText;
+        if (parsed.footerText) document.getElementById('footerText').value = parsed.footerText;
+        return true;
+      } catch(e) { console.log('Load error, using defaults'); }
+    }
+    return false;
+  }
 
-  // Add some default custom fields
-  customFields = [
-    {label: 'Paternal Grandfather', value: 'Late Shri Ramprasad Sharma'},
-    {label: 'Paternal Grandmother', value: 'Late Smt. Ganga Devi'},
-    {label: 'Achievements', value: 'Gold Medalist in College'}
-  ];
+  function saveToStorage() {
+    const toSave = {
+      data: {...data},
+      customFields: customFields,
+      photoDataUrl: photoDataUrl,
+      savedProfiles: savedProfiles,
+      auspText: document.getElementById('auspText').value,
+      footerText: document.getElementById('footerText').value
+    };
+    localStorage.setItem('biodataData', JSON.stringify(toSave));
+  }
 
-  // Theme
+  // Auto-save every 5 seconds
+  setInterval(() => {
+    collectAllData();
+    saveToStorage();
+  }, 5000);
+
+  function collectAllData() {
+    Object.keys(fieldDefs).forEach(cat => {
+      Object.keys(fieldDefs[cat]).forEach(key => {
+        const el = document.getElementById(key);
+        if (el) data[key] = el.value;
+      });
+    });
+    data.auspText = document.getElementById('auspText').value;
+    data.footerText = document.getElementById('footerText').value;
+  }
+
+  // Load or set defaults
+  if (!loadFromStorage()) {
+    Object.keys(defaults).forEach(key => {
+      data[key] = defaults[key];
+      const el = document.getElementById(key);
+      if (el && key !== 'maritalStatus') el.value = defaults[key];
+    });
+    const msEl = document.getElementById('maritalStatus');
+    if (msEl) msEl.value = 'Never Married';
+    customFields = [
+      {label: 'Paternal Grandfather', value: 'Late Shri Ramprasad Sharma'},
+      {label: 'Paternal Grandmother', value: 'Late Smt. Ganga Devi'},
+      {label: 'Achievements', value: 'Gold Medalist in College'}
+    ];
+  }
+
+  // ----- TOAST NOTIFICATIONS -----
+  function showToast(message, type = 'success') {
+    const container = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    const icons = { success: '✅', warning: '⚠️', error: '❌' };
+    toast.innerHTML = `${icons[type] || '✅'} ${message}`;
+    container.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  // ----- THEME MANAGEMENT -----
   const themes = {
     'cream-gold': { bg: '#fefdf7', text: '#1a1410', accent: '#b8860b', maroon: '#8b1a1a' },
     'white-maroon': { bg: '#ffffff', text: '#1a1410', accent: '#8b1a1a', maroon: '#5c1010' },
-    'ivory-saffron': { bg: '#fffef5', text: '#1a1410', accent: '#d4840b', maroon: '#a0522d' }
+    'ivory-saffron': { bg: '#fffef5', text: '#1a1410', accent: '#d4840b', maroon: '#a0522d' },
+    'gujarati-style': { bg: '#fffdf5', text: '#1a1410', accent: '#c8963e', maroon: '#9b1b30' },
+    'south-indian': { bg: '#fef9f0', text: '#1a1410', accent: '#b8860b', maroon: '#8b2500' }
   };
 
   document.getElementById('themeSelect').addEventListener('change', function(e) {
@@ -1070,8 +1143,235 @@
     document.querySelectorAll('.info-label').forEach(el => el.style.color = t.accent);
     document.querySelectorAll('.mangalmay-text').forEach(el => el.style.color = t.maroon);
     document.querySelectorAll('.divider-dot').forEach(el => el.style.background = t.accent);
+    saveToStorage();
   });
 
+  // ----- MULTI-LANGUAGE -----
+  const translations = {
+    en: { auspicious: 'Auspicious Settings', topAuspicious: 'Top Auspicious Text', divineSymbol: 'Divine Symbol',
+      uploadDivine: 'Upload Ganesh Ji / Divine Symbol', bottomBlessing: 'Bottom Blessing',
+      photo: 'Photo', uploadPhoto: 'Upload Passport Size Photo', removePhoto: 'Remove', cropPhoto: 'Crop',
+      personal: 'Personal Details', fullName: 'Full Name', dob: 'Date of Birth', tob: 'Time of Birth',
+      pob: 'Place of Birth', birthName: 'Birth Name', height: 'Height', complexion: 'Complexion',
+      bloodGroup: 'Blood Group', motherTongue: 'Mother Tongue', diet: 'Diet',
+      maritalStatus: 'Marital Status', hobbies: 'Hobbies', education: 'Education',
+      occupation: 'Occupation', income: 'Annual Income',
+      religious: 'Religious & Astro', religion: 'Religion', caste: 'Caste', subCaste: 'Sub-Caste',
+      gotra: 'Gotra', rashi: 'Rashi', nakshatra: 'Nakshatra', manglik: 'Manglik', kuldevta: 'Kuldevta',
+      family: 'Family', fatherName: "Father's Name", fatherOcc: "Father's Occ.",
+      motherName: "Mother's Name", motherOcc: "Mother's Occ.", brothers: 'Brothers',
+      sisters: 'Sisters', familyType: 'Family Type', nativePlace: 'Native Place',
+      contact: 'Contact', mobile: 'Mobile', email: 'Email', currentAddr: 'Current Address',
+      permAddr: 'Permanent Address', customFields: 'Additional Custom Fields',
+      addCustomField: 'Add Blank Custom Field' },
+    hi: { auspicious: 'शुभ लेखन', topAuspicious: 'शीर्ष शुभ लेखन', divineSymbol: 'दिव्य चिन्ह',
+      uploadDivine: 'गणेश जी / दिव्य चिन्ह अपलोड करें', bottomBlessing: 'अंतिम आशीर्वाद',
+      photo: 'फोटो', uploadPhoto: 'पासपोर्ट साइज फोटो अपलोड करें', removePhoto: 'हटाएं', cropPhoto: 'क्रॉप करें',
+      personal: 'व्यक्तिगत विवरण', fullName: 'पूरा नाम', dob: 'जन्म तिथि', tob: 'जन्म समय',
+      pob: 'जन्म स्थान', birthName: 'जन्म नाम', height: 'ऊंचाई', complexion: 'रंग',
+      bloodGroup: 'ब्लड ग्रुप', motherTongue: 'मातृभाषा', diet: 'आहार',
+      maritalStatus: 'वैवाहिक स्थिति', hobbies: 'शौक', education: 'शिक्षा',
+      occupation: 'व्यवसाय', income: 'वार्षिक आय',
+      religious: 'धार्मिक और ज्योतिष', religion: 'धर्म', caste: 'जाति', subCaste: 'उप-जाति',
+      gotra: 'गोत्र', rashi: 'राशि', nakshatra: 'नक्षत्र', manglik: 'मांगलिक', kuldevta: 'कुलदेवता',
+      family: 'परिवार', fatherName: 'पिता का नाम', fatherOcc: 'पिता का व्यवसाय',
+      motherName: 'माता का नाम', motherOcc: 'माता का व्यवसाय', brothers: 'भाई',
+      sisters: 'बहनें', familyType: 'परिवार प्रकार', nativePlace: 'मूल स्थान',
+      contact: 'संपर्क', mobile: 'मोबाइल', email: 'ईमेल', currentAddr: 'वर्तमान पता',
+      permAddr: 'स्थायी पता', customFields: 'अतिरिक्त फ़ील्ड', addCustomField: 'नया फ़ील्ड जोड़ें' }
+  };
+
+  document.getElementById('langSelect').addEventListener('change', function(e) {
+    const lang = e.target.value;
+    const t = translations[lang] || translations.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key]) el.textContent = t[key];
+    });
+    // Update placeholders
+    document.querySelectorAll('input[placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (key && t[key]) el.placeholder = 'Optional';
+    });
+    saveToStorage();
+  });
+
+  // ----- CROP MODAL -----
+  let cropImageElement = null;
+  window.openCropModal = function() {
+    if (!photoDataUrl) {
+      showToast('Please upload a photo first', 'warning');
+      return;
+    }
+    document.getElementById('cropImage').src = photoDataUrl;
+    document.getElementById('cropModal').classList.add('active');
+  };
+
+  window.closeCropModal = function() {
+    document.getElementById('cropModal').classList.remove('active');
+  };
+
+  window.applyCrop = function() {
+    const img = document.getElementById('cropImage');
+    const canvas = document.createElement('canvas');
+    const size = Math.min(img.naturalWidth, img.naturalHeight);
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+    const sx = (img.naturalWidth - size) / 2;
+    const sy = (img.naturalHeight - size) / 2;
+    ctx.drawImage(img, sx, sy, size, size, 0, 0, size, size);
+    photoDataUrl = canvas.toDataURL('image/jpeg', 0.9);
+    renderAll();
+    closeCropModal();
+    showToast('Photo cropped successfully! ✅');
+    saveToStorage();
+  };
+
+  // ----- SAVE/LOAD PROFILES -----
+  window.saveProfile = function() {
+    collectAllData();
+    const profileName = prompt('Enter profile name:', data.fullName || 'Profile ' + (savedProfiles.length + 1));
+    if (!profileName) return;
+    
+    const profile = {
+      name: profileName,
+      data: {...data},
+      customFields: [...customFields],
+      photoDataUrl: photoDataUrl,
+      auspText: document.getElementById('auspText').value,
+      footerText: document.getElementById('footerText').value,
+      date: new Date().toLocaleDateString()
+    };
+    
+    const existingIndex = savedProfiles.findIndex(p => p.name === profileName);
+    if (existingIndex >= 0) {
+      savedProfiles[existingIndex] = profile;
+    } else {
+      savedProfiles.push(profile);
+    }
+    
+    saveToStorage();
+    renderSavedProfiles();
+    showToast('Profile saved successfully! 💾');
+  };
+
+  function loadProfile(index) {
+    const profile = savedProfiles[index];
+    if (!profile) return;
+    
+    Object.keys(profile.data).forEach(key => {
+      data[key] = profile.data[key];
+      const el = document.getElementById(key);
+      if (el && key !== 'maritalStatus') el.value = profile.data[key] || '';
+    });
+    if (profile.data.maritalStatus) {
+      const msEl = document.getElementById('maritalStatus');
+      if (msEl) msEl.value = profile.data.maritalStatus;
+    }
+    customFields = [...profile.customFields];
+    photoDataUrl = profile.photoDataUrl;
+    document.getElementById('auspText').value = profile.auspText || '';
+    document.getElementById('footerText').value = profile.footerText || '';
+    
+    renderCustomFieldsForm();
+    renderAll();
+    showToast(`Loaded: ${profile.name} ✅`);
+  }
+
+  function deleteProfile(index) {
+    if (confirm('Delete this profile?')) {
+      savedProfiles.splice(index, 1);
+      saveToStorage();
+      renderSavedProfiles();
+      showToast('Profile deleted', 'warning');
+    }
+  }
+
+  function renderSavedProfiles() {
+    const container = document.getElementById('savedProfiles');
+    const list = document.getElementById('savedProfilesList');
+    
+    if (savedProfiles.length === 0) {
+      container.style.display = 'none';
+      return;
+    }
+    
+    container.style.display = 'block';
+    list.innerHTML = savedProfiles.map((p, i) => `
+      <div class="saved-profile-item">
+        <span onclick="loadProfile(${i})" style="flex:1;">
+          <strong>${p.name}</strong> <small style="color:#888;">(${p.date})</small>
+        </span>
+        <button onclick="deleteProfile(${i})" style="background:none;border:none;color:#c0392b;cursor:pointer;">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    `).join('');
+  }
+
+  // ----- SHARE -----
+  window.shareViaWhatsApp = async function() {
+    collectAllData();
+    try {
+      const canvas = await captureCard();
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+      const file = new File([blob], 'biodata.png', { type: 'image/png' });
+      
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: 'Marriage Biodata',
+          text: 'Here is my marriage biodata'
+        });
+        showToast('Shared successfully! 📤');
+      } else {
+        // Fallback: download and tell user to share manually
+        const link = document.createElement('a');
+        link.download = 'Biodata_Share.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        showToast('Image downloaded! You can now share it on WhatsApp 📤');
+      }
+    } catch(e) {
+      console.log('Share error:', e);
+      showToast('Could not share. Image downloaded for manual sharing.', 'warning');
+    }
+  };
+
+  // ----- QR CODE -----
+  function generateQR() {
+    const qrContainer = document.getElementById('qrContainer');
+    const qrCanvas = document.getElementById('qrCode');
+    
+    const contactInfo = [
+      data.fullName ? `Name: ${data.fullName}` : '',
+      data.mobile ? `Mobile: ${data.mobile}` : '',
+      data.email ? `Email: ${data.email}` : ''
+    ].filter(Boolean).join('\n');
+    
+    if (!contactInfo.trim()) {
+      qrContainer.style.display = 'none';
+      return;
+    }
+    
+    qrContainer.style.display = 'block';
+    qrCanvas.innerHTML = '';
+    
+    try {
+      new QRCode(qrCanvas, {
+        text: contactInfo,
+        width: 60,
+        height: 60,
+        colorDark: '#8b1a1a',
+        colorLight: '#fefdf7'
+      });
+    } catch(e) {
+      console.log('QR generation skipped');
+    }
+  }
+
+  // ----- SMART RENDERING -----
   function getFilled(category) {
     const result = {};
     Object.keys(fieldDefs[category]).forEach(key => {
@@ -1100,7 +1400,6 @@
         el.style.color = filled > 0 ? '#2d7a2d' : '#b0a090';
       }
     });
-    // Custom count
     const customCount = customFields.filter(f => f.label.trim() && f.value.trim()).length;
     const customEl = document.getElementById('customCount');
     if (customEl) {
@@ -1118,57 +1417,54 @@
     }
   }
 
-  // ===== CUSTOM FIELDS MANAGEMENT =====
   window.addCustomField = function(label, value) {
     customFields.push({label: label || '', value: value || ''});
     renderCustomFieldsForm();
     renderAll();
+    saveToStorage();
   };
 
-  function removeCustomField(index) {
+  window.removeCustomField = function(index) {
     customFields.splice(index, 1);
     renderCustomFieldsForm();
     renderAll();
-  }
+    saveToStorage();
+  };
 
   function renderCustomFieldsForm() {
     const container = document.getElementById('customFieldsContainer');
-    const emptyMsg = document.getElementById('emptyCustomMsg');
     
     if (customFields.length === 0) {
-      container.innerHTML = '<div class="empty-custom-message"><i class="fas fa-lightbulb"></i> Click quick-add buttons above or "Add Custom Field" below</div>';
+      container.innerHTML = '<div class="empty-custom-message" style="text-align:center;color:#c4b8a8;font-size:0.75rem;padding:10px;font-style:italic;"><i class="fas fa-lightbulb"></i> Click quick-add buttons or "Add Custom Field"</div>';
       return;
     }
 
-    container.innerHTML = '';
-    customFields.forEach((field, index) => {
-      const row = document.createElement('div');
-      row.className = 'custom-field-row';
-      row.innerHTML = `
+    container.innerHTML = customFields.map((field, index) => `
+      <div class="custom-field-row">
         <input type="text" class="field-label-input" placeholder="Field Label" value="${field.label}" data-index="${index}" data-type="label">
         <input type="text" class="field-value-input" placeholder="Field Value" value="${field.value}" data-index="${index}" data-type="value">
         <button class="btn-remove" onclick="removeCustomField(${index})" title="Remove">
           <i class="fas fa-trash"></i>
         </button>
-      `;
-      container.appendChild(row);
-    });
+      </div>
+    `).join('');
 
-    // Bind events
     container.querySelectorAll('input').forEach(input => {
       input.addEventListener('input', function() {
         const index = parseInt(this.dataset.index);
         const type = this.dataset.type;
         customFields[index][type] = this.value;
         renderAll();
+        saveToStorage();
       });
     });
   }
 
   function renderAll() {
+    collectAllData();
     updateCounters();
-
     renderPhoto();
+    generateQR();
 
     // Personal
     const pFields = getFilled('personal');
@@ -1197,7 +1493,7 @@
     document.getElementById('previewFamily').innerHTML = fHtml || '';
     document.getElementById('familySection').style.display = fHtml.trim() ? 'block' : 'none';
 
-    // Custom Fields
+    // Custom
     let customHtml = '';
     customFields.forEach(field => {
       if (field.label.trim() && field.value.trim()) {
@@ -1216,30 +1512,23 @@
     document.getElementById('previewContact').innerHTML = cHtml || '';
     document.getElementById('contactSection').style.display = cHtml.trim() ? 'block' : 'none';
 
-    // Top auspicious
-    const auspText = data.auspText || document.getElementById('auspText').value;
+    // Auspicious
+    const auspText = document.getElementById('auspText').value;
     document.getElementById('previewAuspText').textContent = auspText || '';
     document.getElementById('topAuspicious').style.display = auspText && auspText.trim() ? 'block' : 'none';
 
-    // Bottom auspicious
-    const footerText = data.footerText || document.getElementById('footerText').value;
+    const footerText = document.getElementById('footerText').value;
     document.getElementById('previewFooter').textContent = footerText || '';
     document.getElementById('bottomAuspicious').style.display = footerText && footerText.trim() ? 'block' : 'none';
   }
 
-  // Bind standard inputs
+  // ----- BIND INPUTS -----
   Object.keys(fieldDefs).forEach(cat => {
     Object.keys(fieldDefs[cat]).forEach(key => {
       const el = document.getElementById(key);
       if (el) {
-        el.addEventListener('input', function() {
-          data[key] = this.value;
-          renderAll();
-        });
-        el.addEventListener('change', function() {
-          data[key] = this.value;
-          renderAll();
-        });
+        el.addEventListener('input', () => { renderAll(); saveToStorage(); });
+        el.addEventListener('change', () => { renderAll(); saveToStorage(); });
       }
     });
   });
@@ -1247,10 +1536,7 @@
   ['auspText','footerText'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
-      el.addEventListener('input', function() {
-        data[id] = this.value;
-        renderAll();
-      });
+      el.addEventListener('input', () => { renderAll(); saveToStorage(); });
     }
   });
 
@@ -1262,6 +1548,7 @@
       reader.onload = ev => {
         photoDataUrl = ev.target.result;
         renderAll();
+        saveToStorage();
       };
       reader.readAsDataURL(file);
     }
@@ -1271,6 +1558,8 @@
     photoDataUrl = null;
     document.getElementById('photoInput').value = '';
     renderAll();
+    saveToStorage();
+    showToast('Photo removed');
   });
 
   // Header icon
@@ -1285,7 +1574,7 @@
     }
   });
 
-  // ===== EXPORT =====
+  // ----- EXPORT -----
   async function captureCard() {
     const card = document.getElementById('biodataCard');
     const bgColor = window.getComputedStyle(card).backgroundColor;
@@ -1303,23 +1592,21 @@
   document.getElementById('downloadPDF').addEventListener('click', async () => {
     const btn = document.getElementById('downloadPDF');
     const origHTML = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating PDF...';
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PDF...';
     btn.disabled = true;
 
     try {
       const canvas = await captureCard();
       const { jsPDF } = window.jspdf;
       const pdf = new jsPDF('p', 'mm', 'a4');
-      const pageWidth = 210;
-      const pageHeight = 297;
-      
-      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, pageWidth, pageHeight);
+      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 210, 297);
       
       const name = (data.fullName || 'Biodata').replace(/\s+/g, '_');
       pdf.save('Marriage_Biodata_' + name + '.pdf');
+      showToast('PDF downloaded successfully! 📄');
     } catch (err) {
       console.error('PDF Error:', err);
-      alert('Error creating PDF. Please try again.');
+      showToast('Error creating PDF', 'error');
     } finally {
       btn.innerHTML = origHTML;
       btn.disabled = false;
@@ -1329,7 +1616,7 @@
   document.getElementById('downloadPNG').addEventListener('click', async () => {
     const btn = document.getElementById('downloadPNG');
     const origHTML = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Image...';
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PNG...';
     btn.disabled = true;
 
     try {
@@ -1339,9 +1626,10 @@
       link.download = 'Biodata_' + name + '.png';
       link.href = canvas.toDataURL('image/png', 1.0);
       link.click();
+      showToast('Image downloaded successfully! 🖼️');
     } catch (err) {
       console.error('PNG Error:', err);
-      alert('Error creating image. Please try again.');
+      showToast('Error creating image', 'error');
     } finally {
       btn.innerHTML = origHTML;
       btn.disabled = false;
@@ -1350,6 +1638,7 @@
 
   document.getElementById('printBtn').addEventListener('click', () => {
     window.print();
+    showToast('Opening print dialog... 🖨️');
   });
 
   // Keyboard shortcuts
@@ -1360,18 +1649,24 @@
     }
     if ((e.ctrlKey || e.metaKey) && e.key === 's') {
       e.preventDefault();
-      document.getElementById('downloadPNG').click();
+      saveProfile();
     }
   });
 
-  // Initial render
+  // Close crop modal on outside click
+  document.getElementById('cropModal').addEventListener('click', function(e) {
+    if (e.target === this) closeCropModal();
+  });
+
+  // ----- INITIALIZATION -----
   renderCustomFieldsForm();
+  renderSavedProfiles();
   renderAll();
   
-  console.log('🪷 Divine Marriage Biodata - Custom Fields Ready!');
+  console.log('🪷✨ ULTIMATE DIVINE BIODATA CREATOR READY! ✨🪷');
   console.log('॥ श्री गणेशाय नमः ॥');
-  console.log('✨ Add any fields: Grandfather, Grandmother, Uncle, etc.');
-  console.log('⌨️ Ctrl+P = PDF | Ctrl+S = PNG');
+  console.log('🚀 Features: Smart Display | Auto-Save | Multi-Language | QR Code | Crop | Share | Save Profiles');
+  console.log('⌨️ Ctrl+P = PDF | Ctrl+S = Save Profile');
 })();
 </script>
 </body>
