@@ -59,7 +59,7 @@
       overflow: hidden;
     }
 
-    /* ===== HEADER - ELEGANT & REFINED ===== */
+    /* ===== HEADER ===== */
     .header {
       background: var(--white-pure);
       padding: 0.7rem 2.5rem;
@@ -149,11 +149,6 @@
       box-shadow: var(--shadow-gold);
     }
 
-    .theme-select:focus {
-      border-color: var(--gold-primary);
-      box-shadow: 0 0 0 3px rgba(184,134,11,0.1);
-    }
-
     .btn {
       padding: 0.55rem 1.3rem;
       border-radius: 25px;
@@ -205,7 +200,7 @@
       overflow: hidden;
     }
 
-    /* ===== FORM PANEL - CLEAN & ELEGANT ===== */
+    /* ===== FORM PANEL ===== */
     .form-panel {
       width: 40%;
       min-width: 400px;
@@ -228,10 +223,6 @@
     .form-panel::-webkit-scrollbar-thumb {
       background: #d4c5a0;
       border-radius: 10px;
-    }
-
-    .form-panel::-webkit-scrollbar-thumb:hover {
-      background: var(--gold-light);
     }
 
     .section-heading {
@@ -266,8 +257,6 @@
     .section-heading i {
       color: var(--gold-primary);
       font-size: 0.95rem;
-      width: 20px;
-      text-align: center;
     }
 
     .form-grid {
@@ -311,12 +300,6 @@
 
     .form-input::placeholder {
       color: #c4b8a8;
-    }
-
-    .form-textarea {
-      resize: vertical;
-      min-height: 60px;
-      line-height: 1.5;
     }
 
     .upload-area {
@@ -383,7 +366,7 @@
       border-radius: 10px;
     }
 
-    /* ===== BIODATA CARD - MASTERPIECE ===== */
+    /* ===== BIODATA CARD ===== */
     .biodata-card {
       background: #fefdf7;
       width: 210mm;
@@ -402,7 +385,6 @@
       transition: var(--transition-smooth);
     }
 
-    /* Gold border frame */
     .biodata-card::before {
       content: '';
       position: absolute;
@@ -416,7 +398,6 @@
       opacity: 0.6;
     }
 
-    /* Corner ornaments */
     .corner-ornament {
       position: absolute;
       width: 30px;
@@ -453,7 +434,6 @@
       border-right: 3px solid var(--gold-primary);
     }
 
-    /* Inner content area */
     .card-inner {
       position: relative;
       z-index: 3;
@@ -507,7 +487,6 @@
       margin: 8px auto 0;
     }
 
-    /* Title */
     .biodata-title {
       text-align: center;
       font-family: 'Great Vibes', 'Playfair Display', cursive;
@@ -660,7 +639,27 @@
       margin-top: 4px;
     }
 
-    /* Responsive */
+    .empty-state {
+      text-align: center;
+      color: #c4b8a8;
+      font-style: italic;
+      padding: 10px;
+      font-size: 0.85rem;
+    }
+
+    /* Smart field counter */
+    .field-counter {
+      display: inline-block;
+      background: var(--gold-pale);
+      color: var(--gold-dark);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      margin-left: 8px;
+      letter-spacing: 0.5px;
+    }
+
     @media (max-width: 1000px) {
       .main-layout {
         flex-direction: column;
@@ -731,7 +730,7 @@
     </div>
     <div class="toolbar">
       <select id="themeSelector" class="theme-select">
-        <option value="cream-gold">✨ Cream & Gold (Default)</option>
+        <option value="cream-gold">✨ Cream & Gold</option>
         <option value="white-maroon">🤍 White & Maroon</option>
         <option value="ivory-saffron">🧡 Ivory & Saffron</option>
       </select>
@@ -755,209 +754,216 @@
       <!-- Auspicious Settings -->
       <div class="section-heading">
         <i class="fas fa-om"></i> 🕉️ Auspicious Settings
+        <span class="field-counter" id="auspCount">2 fields</span>
       </div>
       <div class="form-grid">
         <div class="form-group full">
           <label class="form-label">Auspicious Text (Top)</label>
           <input type="text" id="auspText" class="form-input" 
-                 value="॥ श्री गणेशाय नमः ॥">
+                 value="॥ श्री गणेशाय नमः ॥" placeholder="Optional">
         </div>
         <div class="form-group full">
           <label class="form-label">Divine Symbol Image</label>
           <div class="upload-area" onclick="document.getElementById('headerIconInput').click()">
             <div class="upload-icon">🪷</div>
-            <div class="upload-text">Click to Upload Divine Symbol</div>
-            <div class="upload-hint">(Ganesha, Om, Swastik, etc.)</div>
+            <div class="upload-text">Upload Divine Symbol (Optional)</div>
+            <div class="upload-hint">Ganesha, Om, Swastik, etc.</div>
             <input type="file" id="headerIconInput" accept="image/*" style="display:none;">
           </div>
         </div>
         <div class="form-group full">
           <label class="form-label">Footer Blessing Text</label>
           <input type="text" id="footerText" class="form-input" 
-                 value="॥ शुभ विवाह मंगलमय हो ॥">
+                 value="॥ शुभ विवाह मंगलमय हो ॥" placeholder="Optional">
         </div>
       </div>
 
       <!-- Profile Photo -->
       <div class="section-heading">
         <i class="fas fa-camera"></i> 📷 Profile Photo
+        <span class="field-counter" id="photoCount">Optional</span>
       </div>
       <div class="upload-area" onclick="document.getElementById('photoInput').click()">
         <div class="upload-icon">📸</div>
-        <div class="upload-text">Upload Passport Size Photo</div>
-        <div class="upload-hint">Recommended size: 125×155 px</div>
+        <div class="upload-text">Upload Passport Size Photo (Optional)</div>
+        <div class="upload-hint">Will show only if uploaded</div>
         <input type="file" id="photoInput" accept="image/*" style="display:none;">
       </div>
 
       <!-- Personal Details -->
       <div class="section-heading">
         <i class="fas fa-user"></i> Personal Details
+        <span class="field-counter" id="personalCount">0 filled</span>
       </div>
-      <div class="form-grid">
+      <div class="form-grid" id="personalFields">
         <div class="form-group full">
           <label class="form-label">Full Name</label>
-          <input type="text" id="fullName" class="form-input" value="Vineet Kumar Sharma">
+          <input type="text" id="fullName" class="form-input personal-field" value="Vineet Kumar Sharma" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Date of Birth</label>
-          <input type="text" id="dob" class="form-input" value="22 February 1995">
+          <input type="text" id="dob" class="form-input personal-field" value="22 February 1995" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Time of Birth</label>
-          <input type="text" id="tob" class="form-input" value="12:45 AM">
+          <input type="text" id="tob" class="form-input personal-field" value="12:45 AM" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Place of Birth</label>
-          <input type="text" id="pob" class="form-input" value="Pune, Maharashtra">
+          <input type="text" id="pob" class="form-input personal-field" value="Pune, Maharashtra" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Birth Name</label>
-          <input type="text" id="birthName" class="form-input" value="Jeevan">
+          <input type="text" id="birthName" class="form-input personal-field" value="Jeevan" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Height</label>
-          <input type="text" id="height" class="form-input" value="5 ft 6 in">
+          <input type="text" id="height" class="form-input personal-field" value="5 ft 6 in" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Complexion</label>
-          <input type="text" id="complexion" class="form-input" value="Fair">
+          <input type="text" id="complexion" class="form-input personal-field" value="Fair" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Blood Group</label>
-          <input type="text" id="bloodGroup" class="form-input" value="A -ve">
+          <input type="text" id="bloodGroup" class="form-input personal-field" value="A -ve" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Mother Tongue</label>
-          <input type="text" id="motherTongue" class="form-input" value="Hindi">
+          <input type="text" id="motherTongue" class="form-input personal-field" value="Hindi" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Diet</label>
-          <input type="text" id="diet" class="form-input" value="Vegetarian">
+          <input type="text" id="diet" class="form-input personal-field" value="Vegetarian" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Marital Status</label>
-          <select id="maritalStatus" class="form-select">
-            <option>Never Married</option>
-            <option>Divorced</option>
-            <option>Widowed</option>
+          <select id="maritalStatus" class="form-select personal-field">
+            <option value="">-- Optional --</option>
+            <option value="Never Married" selected>Never Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
           </select>
         </div>
         <div class="form-group">
           <label class="form-label">Hobbies</label>
-          <input type="text" id="hobbies" class="form-input" value="Reading, Traveling, Music">
+          <input type="text" id="hobbies" class="form-input personal-field" value="Reading, Traveling, Music" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Education</label>
-          <input type="text" id="education" class="form-input" value="B.Tech (Computer Science)">
+          <input type="text" id="education" class="form-input personal-field" value="B.Tech (Computer Science)" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Occupation</label>
-          <input type="text" id="occupation" class="form-input" value="Senior Software Engineer">
+          <input type="text" id="occupation" class="form-input personal-field" value="Senior Software Engineer" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Annual Income</label>
-          <input type="text" id="income" class="form-input" value="18 LPA">
+          <input type="text" id="income" class="form-input personal-field" value="18 LPA" placeholder="Optional">
         </div>
       </div>
 
       <!-- Religious Details -->
       <div class="section-heading">
         <i class="fas fa-pray"></i> Religious & Astro
+        <span class="field-counter" id="religiousCount">0 filled</span>
       </div>
-      <div class="form-grid">
+      <div class="form-grid" id="religiousFields">
         <div class="form-group">
           <label class="form-label">Religion</label>
-          <input type="text" id="religion" class="form-input" value="Hindu">
+          <input type="text" id="religion" class="form-input religious-field" value="Hindu" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Caste</label>
-          <input type="text" id="caste" class="form-input" value="Kshatriya">
+          <input type="text" id="caste" class="form-input religious-field" value="Kshatriya" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Sub-Caste</label>
-          <input type="text" id="subCaste" class="form-input" value="Gaur">
+          <input type="text" id="subCaste" class="form-input religious-field" value="Gaur" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Gotra</label>
-          <input type="text" id="gotra" class="form-input" value="Bharadwaj">
+          <input type="text" id="gotra" class="form-input religious-field" value="Bharadwaj" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Rashi</label>
-          <input type="text" id="rashi" class="form-input" value="Mesh (Aries)">
+          <input type="text" id="rashi" class="form-input religious-field" value="Mesh (Aries)" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Nakshatra</label>
-          <input type="text" id="nakshatra" class="form-input" value="Swati">
+          <input type="text" id="nakshatra" class="form-input religious-field" value="Swati" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Manglik</label>
-          <input type="text" id="manglik" class="form-input" value="Manglik">
+          <input type="text" id="manglik" class="form-input religious-field" value="Manglik" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Kuldevta</label>
-          <input type="text" id="kuldevta" class="form-input" value="Maa Kali">
+          <input type="text" id="kuldevta" class="form-input religious-field" value="Maa Kali" placeholder="Optional">
         </div>
       </div>
 
       <!-- Family Details -->
       <div class="section-heading">
         <i class="fas fa-home"></i> Family Details
+        <span class="field-counter" id="familyCount">0 filled</span>
       </div>
-      <div class="form-grid">
+      <div class="form-grid" id="familyFields">
         <div class="form-group">
           <label class="form-label">Father's Name</label>
-          <input type="text" id="fatherName" class="form-input" value="Mr. Guru Kumar Sharma">
+          <input type="text" id="fatherName" class="form-input family-field" value="Mr. Guru Kumar Sharma" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Father's Occupation</label>
-          <input type="text" id="fatherOcc" class="form-input" value="Farmer & Businessman">
+          <input type="text" id="fatherOcc" class="form-input family-field" value="Farmer & Businessman" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Mother's Name</label>
-          <input type="text" id="motherName" class="form-input" value="Mrs. Leena Sharma">
+          <input type="text" id="motherName" class="form-input family-field" value="Mrs. Leena Sharma" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Mother's Occupation</label>
-          <input type="text" id="motherOcc" class="form-input" value="Homemaker">
+          <input type="text" id="motherOcc" class="form-input family-field" value="Homemaker" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Brothers</label>
-          <input type="text" id="brothers" class="form-input" value="2 Elder (Married)">
+          <input type="text" id="brothers" class="form-input family-field" value="2 Elder (Married)" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Sisters</label>
-          <input type="text" id="sisters" class="form-input" value="1 Elder, 1 Younger">
+          <input type="text" id="sisters" class="form-input family-field" value="1 Elder, 1 Younger" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Family Type</label>
-          <input type="text" id="familyType" class="form-input" value="Joint Family">
+          <input type="text" id="familyType" class="form-input family-field" value="Joint Family" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Native Place</label>
-          <input type="text" id="nativePlace" class="form-input" value="Pune, Maharashtra">
+          <input type="text" id="nativePlace" class="form-input family-field" value="Pune, Maharashtra" placeholder="Optional">
         </div>
       </div>
 
       <!-- Contact Details -->
       <div class="section-heading">
         <i class="fas fa-phone"></i> Contact Details
+        <span class="field-counter" id="contactCount">0 filled</span>
       </div>
-      <div class="form-grid">
+      <div class="form-grid" id="contactFields">
         <div class="form-group">
           <label class="form-label">Mobile</label>
-          <input type="text" id="mobile" class="form-input" value="+91 98220 12345">
+          <input type="text" id="mobile" class="form-input contact-field" value="+91 98220 12345" placeholder="Optional">
         </div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input type="text" id="email" class="form-input" value="vineet.sharma@email.com">
+          <input type="text" id="email" class="form-input contact-field" value="vineet.sharma@email.com" placeholder="Optional">
         </div>
         <div class="form-group full">
           <label class="form-label">Current Address</label>
-          <input type="text" id="currentAddr" class="form-input" value="12, Greenwood Society, Datta Mandir Road, Wakad, Pune - 411057">
+          <input type="text" id="currentAddr" class="form-input contact-field" value="12, Greenwood Society, Datta Mandir Road, Wakad, Pune - 411057" placeholder="Optional">
         </div>
         <div class="form-group full">
           <label class="form-label">Permanent Address</label>
-          <input type="text" id="permAddr" class="form-input" value="Village Post - Devgarh, District - Satara, Maharashtra">
+          <input type="text" id="permAddr" class="form-input contact-field" value="Village Post - Devgarh, District - Satara, Maharashtra" placeholder="Optional">
         </div>
       </div>
       
@@ -967,7 +973,6 @@
     <!-- PREVIEW PANEL -->
     <div class="preview-panel" id="previewPanel">
       <div class="biodata-card" id="biodataCard">
-        <!-- Corner ornaments -->
         <div class="corner-ornament top-left"></div>
         <div class="corner-ornament top-right"></div>
         <div class="corner-ornament bottom-left"></div>
@@ -975,8 +980,8 @@
 
         <div class="card-inner">
           <!-- Auspicious Header -->
-          <div class="auspicious-section">
-            <div class="divine-icon-container">
+          <div class="auspicious-section" id="auspiciousSection">
+            <div class="divine-icon-container" id="divineIconContainer">
               <div class="divine-glow"></div>
               <img id="previewHeaderIcon" class="divine-icon" 
                    src="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23b8860b' stroke-width='2'/%3E%3Ctext x='50' y='58' text-anchor='middle' fill='%23b8860b' font-size='30' font-family='serif'%3E🕉️%3C/text%3E%3C/svg%3E" 
@@ -991,55 +996,63 @@
           <div class="biodata-subtitle">॥ विवाह विवरण ॥</div>
 
           <!-- Personal Section -->
-          <div class="section-divider">
-            <span class="divider-dot"></span>
-            <span class="divider-line"></span>
-            <span class="divider-title">Personal Details</span>
-            <span class="divider-line"></span>
-            <span class="divider-dot"></span>
-          </div>
-          <div class="personal-layout">
-            <div class="personal-info-grid" id="previewPersonal"></div>
-            <div class="photo-frame">
-              <img id="previewPhoto" class="profile-photo" 
-                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='125' height='155' viewBox='0 0 125 155'%3E%3Crect width='125' height='155' fill='%23f0e6d0'/%3E%3Ctext x='62.5' y='80' text-anchor='middle' fill='%23b8860b' font-size='14'%3E📷 Photo%3C/text%3E%3C/svg%3E" 
-                   alt="Profile Photo">
-              <div class="photo-label">Passport Size</div>
+          <div id="personalSection">
+            <div class="section-divider">
+              <span class="divider-dot"></span>
+              <span class="divider-line"></span>
+              <span class="divider-title">Personal Details</span>
+              <span class="divider-line"></span>
+              <span class="divider-dot"></span>
+            </div>
+            <div class="personal-layout">
+              <div class="personal-info-grid" id="previewPersonal"></div>
+              <div class="photo-frame" id="photoFrame">
+                <img id="previewPhoto" class="profile-photo" 
+                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='125' height='155' viewBox='0 0 125 155'%3E%3Crect width='125' height='155' fill='%23f0e6d0'/%3E%3Ctext x='62.5' y='80' text-anchor='middle' fill='%23b8860b' font-size='14'%3E📷 Photo%3C/text%3E%3C/svg%3E" 
+                     alt="Profile Photo">
+                <div class="photo-label">Passport Size</div>
+              </div>
             </div>
           </div>
 
           <!-- Religious Section -->
-          <div class="section-divider">
-            <span class="divider-dot"></span>
-            <span class="divider-line"></span>
-            <span class="divider-title">Religious & Astro</span>
-            <span class="divider-line"></span>
-            <span class="divider-dot"></span>
+          <div id="religiousSection">
+            <div class="section-divider">
+              <span class="divider-dot"></span>
+              <span class="divider-line"></span>
+              <span class="divider-title">Religious & Astro</span>
+              <span class="divider-line"></span>
+              <span class="divider-dot"></span>
+            </div>
+            <div id="previewReligious"></div>
           </div>
-          <div id="previewReligious"></div>
 
           <!-- Family Section -->
-          <div class="section-divider">
-            <span class="divider-dot"></span>
-            <span class="divider-line"></span>
-            <span class="divider-title">Family Details</span>
-            <span class="divider-line"></span>
-            <span class="divider-dot"></span>
+          <div id="familySection">
+            <div class="section-divider">
+              <span class="divider-dot"></span>
+              <span class="divider-line"></span>
+              <span class="divider-title">Family Details</span>
+              <span class="divider-line"></span>
+              <span class="divider-dot"></span>
+            </div>
+            <div id="previewFamily"></div>
           </div>
-          <div id="previewFamily"></div>
 
           <!-- Contact Section -->
-          <div class="section-divider">
-            <span class="divider-dot"></span>
-            <span class="divider-line"></span>
-            <span class="divider-title">Contact Details</span>
-            <span class="divider-line"></span>
-            <span class="divider-dot"></span>
+          <div id="contactSection">
+            <div class="section-divider">
+              <span class="divider-dot"></span>
+              <span class="divider-line"></span>
+              <span class="divider-title">Contact Details</span>
+              <span class="divider-line"></span>
+              <span class="divider-dot"></span>
+            </div>
+            <div id="previewContact"></div>
           </div>
-          <div id="previewContact"></div>
 
           <!-- Footer -->
-          <div class="card-footer">
+          <div class="card-footer" id="cardFooter">
             <div id="previewFooter" class="footer-auspicious">॥ शुभ विवाह मंगलमय हो ॥</div>
             <div class="footer-ornament">✦ ✦ ✦</div>
           </div>
@@ -1053,48 +1066,66 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
   (function() {
-    // ===== DATA STORE =====
-    const biodataData = {
-      auspText: "॥ श्री गणेशाय नमः ॥",
-      footerText: "॥ शुभ विवाह मंगलमय हो ॥",
-      fullName: "Vineet Kumar Sharma",
-      dob: "22 February 1995",
-      tob: "12:45 AM",
-      pob: "Pune, Maharashtra",
-      birthName: "Jeevan",
-      height: "5 ft 6 in",
-      complexion: "Fair",
-      bloodGroup: "A -ve",
-      motherTongue: "Hindi",
-      diet: "Vegetarian",
-      maritalStatus: "Never Married",
-      hobbies: "Reading, Traveling, Music",
-      education: "B.Tech (Computer Science)",
-      occupation: "Senior Software Engineer",
-      income: "18 LPA",
-      religion: "Hindu",
-      caste: "Kshatriya",
-      subCaste: "Gaur",
-      gotra: "Bharadwaj",
-      rashi: "Mesh (Aries)",
-      nakshatra: "Swati",
-      manglik: "Manglik",
-      kuldevta: "Maa Kali",
-      fatherName: "Mr. Guru Kumar Sharma",
-      fatherOcc: "Farmer & Businessman",
-      motherName: "Mrs. Leena Sharma",
-      motherOcc: "Homemaker",
-      brothers: "2 Elder (Married)",
-      sisters: "1 Elder, 1 Younger",
-      familyType: "Joint Family",
-      nativePlace: "Pune, Maharashtra",
-      mobile: "+91 98220 12345",
-      email: "vineet.sharma@email.com",
-      currentAddr: "12, Greenwood Society, Datta Mandir Road, Wakad, Pune - 411057",
-      permAddr: "Village Post - Devgarh, District - Satara, Maharashtra"
+    // ===== SMART BIODATA SYSTEM =====
+    
+    // Field definitions with labels
+    const fieldDefinitions = {
+      personal: {
+        fullName: 'Full Name',
+        dob: 'Date of Birth',
+        tob: 'Time of Birth',
+        pob: 'Place of Birth',
+        birthName: 'Birth Name',
+        height: 'Height',
+        complexion: 'Complexion',
+        bloodGroup: 'Blood Group',
+        motherTongue: 'Mother Tongue',
+        diet: 'Diet',
+        maritalStatus: 'Marital Status',
+        hobbies: 'Hobbies',
+        education: 'Education',
+        occupation: 'Occupation',
+        income: 'Annual Income'
+      },
+      religious: {
+        religion: 'Religion',
+        caste: 'Caste',
+        subCaste: 'Sub-Caste',
+        gotra: 'Gotra',
+        rashi: 'Rashi',
+        nakshatra: 'Nakshatra',
+        manglik: 'Manglik',
+        kuldevta: 'Kuldevta'
+      },
+      family: {
+        fatherName: "Father's Name",
+        fatherOcc: "Father's Occupation",
+        motherName: "Mother's Name",
+        motherOcc: "Mother's Occupation",
+        brothers: 'Brothers',
+        sisters: 'Sisters',
+        familyType: 'Family Type',
+        nativePlace: 'Native Place'
+      },
+      contact: {
+        mobile: 'Mobile',
+        email: 'Email',
+        currentAddr: 'Current Address',
+        permAddr: 'Permanent Address'
+      }
     };
 
-    // ===== THEME MANAGEMENT =====
+    // Initialize data store
+    const biodataData = {};
+    
+    // Initialize all fields
+    Object.values(fieldDefinitions).forEach(category => {
+      Object.keys(category).forEach(key => {
+        biodataData[key] = '';
+      });
+    });
+
+    // Theme management
     const themeSelector = document.getElementById('themeSelector');
     const biodataCard = document.getElementById('biodataCard');
 
@@ -1126,37 +1157,240 @@
       const theme = themes[themeKey];
       biodataCard.style.backgroundColor = theme.bg;
       biodataCard.style.color = theme.text;
-      document.querySelectorAll('.divider-title').forEach(el => {
-        el.style.color = theme.maroon;
+      document.querySelectorAll('.divider-title').forEach(el => el.style.color = theme.maroon);
+      document.querySelectorAll('.auspicious-text').forEach(el => el.style.color = theme.maroon);
+      document.querySelectorAll('.biodata-title').forEach(el => el.style.color = theme.maroon);
+      document.querySelectorAll('.info-label').forEach(el => el.style.color = theme.accent);
+      document.querySelectorAll('.footer-auspicious').forEach(el => el.style.color = theme.maroon);
+      document.querySelectorAll('.corner-ornament').forEach(el => el.style.borderColor = theme.accent);
+      document.querySelectorAll('.divider-dot').forEach(el => el.style.background = theme.accent);
+    }
+
+    themeSelector.addEventListener('change', (e) => applyTheme(e.target.value));
+
+    // ===== SMART RENDERING =====
+    
+    function getNonEmptyFields(category) {
+      const fields = fieldDefinitions[category];
+      const nonEmpty = {};
+      Object.keys(fields).forEach(key => {
+        const value = biodataData[key];
+        if (value && value.trim() !== '') {
+          nonEmpty[key] = value;
+        }
       });
-      document.querySelectorAll('.auspicious-text').forEach(el => {
-        el.style.color = theme.maroon;
-      });
-      document.querySelectorAll('.biodata-title').forEach(el => {
-        el.style.color = theme.maroon;
-      });
-      document.querySelectorAll('.info-label').forEach(el => {
-        el.style.color = theme.accent;
-      });
-      document.querySelectorAll('.footer-auspicious').forEach(el => {
-        el.style.color = theme.maroon;
-      });
-      document.querySelectorAll('.corner-ornament').forEach(el => {
-        el.style.borderColor = theme.accent;
-      });
-      document.querySelectorAll('.divider-dot').forEach(el => {
-        el.style.background = theme.accent;
-      });
-      document.querySelectorAll('.auspicious-line').forEach(el => {
-        el.style.background = `linear-gradient(90deg, transparent, ${theme.accent}, transparent)`;
+      return nonEmpty;
+    }
+
+    function hasPhoto() {
+      const photoSrc = document.getElementById('previewPhoto').src;
+      return !photoSrc.includes('data:image/svg+xml') || document.getElementById('photoInput').files.length > 0;
+    }
+
+    function rowSingle(label, value) {
+      if (!value || value.trim() === '') return '';
+      return `<div class="info-row">
+        <span class="info-label">${label}</span>
+        <span class="info-separator">:</span>
+        <span class="info-value">${value}</span>
+      </div>`;
+    }
+
+    function rowDouble(l1, v1, l2, v2) {
+      const row1 = (v1 && v1.trim() !== '') ? 
+        `<div class="info-row">
+          <span class="info-label">${l1}</span>
+          <span class="info-separator">:</span>
+          <span class="info-value">${v1}</span>
+        </div>` : '';
+      
+      const row2 = (v2 && v2.trim() !== '') ? 
+        `<div class="info-row">
+          <span class="info-label">${l2}</span>
+          <span class="info-separator">:</span>
+          <span class="info-value">${v2}</span>
+        </div>` : '';
+      
+      if (!row1 && !row2) return '';
+      if (!row1) return row2;
+      if (!row2) return row1;
+      
+      return `<div class="info-row-half">${row1}${row2}</div>`;
+    }
+
+    function updateFieldCounters() {
+      const categories = ['personal', 'religious', 'family', 'contact'];
+      categories.forEach(cat => {
+        const nonEmpty = getNonEmptyFields(cat);
+        const count = Object.keys(nonEmpty).length;
+        const total = Object.keys(fieldDefinitions[cat]).length;
+        const counterEl = document.getElementById(cat + 'Count');
+        if (counterEl) {
+          counterEl.textContent = count > 0 ? `${count}/${total} filled` : '0 filled';
+          counterEl.style.color = count > 0 ? '#2d7a2d' : '#b0a090';
+        }
       });
     }
 
-    themeSelector.addEventListener('change', (e) => {
-      applyTheme(e.target.value);
+    function renderAllSections() {
+      // Update counters
+      updateFieldCounters();
+
+      // Personal Section
+      const personalFields = getNonEmptyFields('personal');
+      const personalHTML = Object.entries(personalFields)
+        .map(([key, value]) => rowSingle(fieldDefinitions.personal[key], value))
+        .filter(html => html !== '')
+        .join('');
+
+      const personalSection = document.getElementById('personalSection');
+      const previewPersonal = document.getElementById('previewPersonal');
+      
+      if (personalHTML.trim() === '' && !hasPhoto()) {
+        personalSection.style.display = 'none';
+      } else {
+        personalSection.style.display = 'block';
+        previewPersonal.innerHTML = personalHTML || '<div class="empty-state">No personal details added yet</div>';
+      }
+
+      // Photo visibility
+      const photoFrame = document.getElementById('photoFrame');
+      if (hasPhoto()) {
+        photoFrame.style.display = 'block';
+      } else {
+        photoFrame.style.display = personalHTML.trim() !== '' ? 'block' : 'none';
+      }
+
+      // Religious Section
+      const religiousFields = getNonEmptyFields('religious');
+      const religiousHTML = Object.entries(religiousFields)
+        .map(([key, value]) => rowSingle(fieldDefinitions.religious[key], value))
+        .filter(html => html !== '')
+        .join('');
+
+      const religiousSection = document.getElementById('religiousSection');
+      if (religiousHTML.trim() === '') {
+        religiousSection.style.display = 'none';
+      } else {
+        religiousSection.style.display = 'block';
+        document.getElementById('previewReligious').innerHTML = religiousHTML;
+      }
+
+      // Family Section
+      const familyFields = getNonEmptyFields('family');
+      const familyHTML = Object.entries(familyFields)
+        .map(([key, value]) => rowSingle(fieldDefinitions.family[key], value))
+        .filter(html => html !== '')
+        .join('');
+
+      const familySection = document.getElementById('familySection');
+      if (familyHTML.trim() === '') {
+        familySection.style.display = 'none';
+      } else {
+        familySection.style.display = 'block';
+        document.getElementById('previewFamily').innerHTML = familyHTML;
+      }
+
+      // Contact Section
+      const contactFields = getNonEmptyFields('contact');
+      const contactHTML = Object.entries(contactFields)
+        .map(([key, value]) => rowSingle(fieldDefinitions.contact[key], value))
+        .filter(html => html !== '')
+        .join('');
+
+      const contactSection = document.getElementById('contactSection');
+      if (contactHTML.trim() === '') {
+        contactSection.style.display = 'none';
+      } else {
+        contactSection.style.display = 'block';
+        document.getElementById('previewContact').innerHTML = contactHTML;
+      }
+
+      // Auspicious text
+      const auspText = biodataData.auspText || document.getElementById('auspText').value;
+      const auspSection = document.getElementById('auspiciousSection');
+      const divineIconContainer = document.getElementById('divineIconContainer');
+      
+      if (auspText && auspText.trim() !== '') {
+        document.getElementById('previewAuspText').textContent = auspText;
+        auspSection.style.display = 'block';
+      } else {
+        auspSection.style.display = 'none';
+      }
+
+      // Footer text
+      const footerText = biodataData.footerText || document.getElementById('footerText').value;
+      const cardFooter = document.getElementById('cardFooter');
+      if (footerText && footerText.trim() !== '') {
+        document.getElementById('previewFooter').textContent = footerText;
+        cardFooter.style.display = 'block';
+      } else {
+        cardFooter.style.display = 'none';
+      }
+
+      // Hide empty sections completely
+      const allSectionsEmpty = !personalSection.style.display !== 'none' && 
+                               !religiousSection.style.display !== 'none' && 
+                               !familySection.style.display !== 'none' && 
+                               !contactSection.style.display !== 'none';
+    }
+
+    // ===== INPUT BINDING =====
+    
+    // Bind all category fields
+    Object.keys(fieldDefinitions).forEach(category => {
+      Object.keys(fieldDefinitions[category]).forEach(key => {
+        const input = document.getElementById(key);
+        if (input) {
+          // Set initial value from data or leave empty
+          input.value = biodataData[key] || '';
+          
+          input.addEventListener('input', function() {
+            biodataData[key] = this.value;
+            renderAllSections();
+          });
+          
+          input.addEventListener('change', function() {
+            biodataData[key] = this.value;
+            renderAllSections();
+          });
+        }
+      });
     });
 
-    // ===== ICON UPLOAD =====
+    // Special fields
+    ['auspText', 'footerText'].forEach(id => {
+      const input = document.getElementById(id);
+      if (input) {
+        input.addEventListener('input', function() {
+          biodataData[id] = this.value;
+          if (id === 'auspText') {
+            document.getElementById('previewAuspText').textContent = this.value;
+          }
+          if (id === 'footerText') {
+            document.getElementById('previewFooter').textContent = this.value;
+          }
+          renderAllSections();
+        });
+      }
+    });
+
+    // Photo upload
+    document.getElementById('photoInput').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = ev => {
+          document.getElementById('previewPhoto').src = ev.target.result;
+          renderAllSections();
+        };
+        reader.readAsDataURL(file);
+      } else {
+        renderAllSections();
+      }
+    });
+
+    // Header icon upload
     document.getElementById('headerIconInput').addEventListener('change', function(e) {
       const file = e.target.files[0];
       if (file) {
@@ -1167,111 +1401,6 @@
         reader.readAsDataURL(file);
       }
     });
-
-    // ===== PHOTO UPLOAD =====
-    document.getElementById('photoInput').addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = ev => {
-          document.getElementById('previewPhoto').src = ev.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-
-    // ===== INPUT BINDING & LIVE PREVIEW =====
-    const inputMap = {
-      'auspText': 'previewAuspText',
-      'footerText': 'previewFooter'
-    };
-
-    // Bind all inputs
-    Object.keys(biodataData).forEach(key => {
-      const input = document.getElementById(key);
-      if (input) {
-        input.value = biodataData[key];
-        input.addEventListener('input', function() {
-          biodataData[key] = this.value;
-          if (inputMap[key]) {
-            document.getElementById(inputMap[key]).textContent = this.value;
-          }
-          renderAllSections();
-        });
-      }
-    });
-
-    // ===== RENDER FUNCTIONS =====
-    function rowSingle(label, value) {
-      return `<div class="info-row">
-        <span class="info-label">${label}</span>
-        <span class="info-separator">:</span>
-        <span class="info-value">${value || '—'}</span>
-      </div>`;
-    }
-
-    function rowDouble(l1, v1, l2, v2) {
-      return `<div class="info-row-half">
-        <div class="info-row">
-          <span class="info-label">${l1}</span>
-          <span class="info-separator">:</span>
-          <span class="info-value">${v1 || '—'}</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">${l2}</span>
-          <span class="info-separator">:</span>
-          <span class="info-value">${v2 || '—'}</span>
-        </div>
-      </div>`;
-    }
-
-    function renderAllSections() {
-      // Personal
-      document.getElementById('previewPersonal').innerHTML = 
-        rowSingle('Full Name', biodataData.fullName) +
-        rowSingle('Date of Birth', biodataData.dob) +
-        rowSingle('Time of Birth', biodataData.tob) +
-        rowSingle('Place of Birth', biodataData.pob) +
-        rowSingle('Birth Name', biodataData.birthName) +
-        rowSingle('Height', biodataData.height) +
-        rowSingle('Complexion', biodataData.complexion) +
-        rowSingle('Blood Group', biodataData.bloodGroup) +
-        rowSingle('Mother Tongue', biodataData.motherTongue) +
-        rowSingle('Diet', biodataData.diet) +
-        rowSingle('Marital Status', biodataData.maritalStatus) +
-        rowSingle('Hobbies', biodataData.hobbies) +
-        rowSingle('Education', biodataData.education) +
-        rowSingle('Occupation', biodataData.occupation) +
-        rowSingle('Annual Income', biodataData.income);
-
-      // Religious
-      document.getElementById('previewReligious').innerHTML = 
-        rowDouble('Religion', biodataData.religion, 'Caste', biodataData.caste) +
-        rowDouble('Sub-Caste', biodataData.subCaste, 'Gotra', biodataData.gotra) +
-        rowDouble('Rashi', biodataData.rashi, 'Nakshatra', biodataData.nakshatra) +
-        rowDouble('Manglik', biodataData.manglik, 'Kuldevta', biodataData.kuldevta);
-
-      // Family
-      document.getElementById('previewFamily').innerHTML = 
-        rowDouble("Father's Name", biodataData.fatherName, "Father's Occ.", biodataData.fatherOcc) +
-        rowDouble("Mother's Name", biodataData.motherName, "Mother's Occ.", biodataData.motherOcc) +
-        rowDouble('Brothers', biodataData.brothers, 'Sisters', biodataData.sisters) +
-        rowDouble('Family Type', biodataData.familyType, 'Native Place', biodataData.nativePlace);
-
-      // Contact
-      document.getElementById('previewContact').innerHTML = 
-        rowDouble('Mobile', biodataData.mobile, 'Email', biodataData.email) +
-        rowSingle('Current Address', biodataData.currentAddr) +
-        rowSingle('Permanent Address', biodataData.permAddr);
-
-      // Header texts
-      document.getElementById('previewAuspText').textContent = biodataData.auspText;
-      document.getElementById('previewFooter').textContent = biodataData.footerText;
-    }
-
-    // Initial render
-    renderAllSections();
-    applyTheme('cream-gold');
 
     // ===== EXPORT FUNCTIONS =====
     async function captureCard() {
@@ -1285,7 +1414,6 @@
       });
     }
 
-    // PDF Download
     document.getElementById('downloadPDF').addEventListener('click', async () => {
       const btn = document.getElementById('downloadPDF');
       const origHTML = btn.innerHTML;
@@ -1297,24 +1425,13 @@
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF('p', 'mm', 'a4');
         const pageWidth = pdf.internal.pageSize.getWidth();
-        const pageHeight = pdf.internal.pageSize.getHeight();
         const imgWidth = pageWidth;
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         
-        let heightLeft = imgHeight;
-        let position = 0;
+        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, imgWidth, imgHeight);
         
-        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-        
-        while (heightLeft > 0) {
-          position = heightLeft - imgHeight;
-          pdf.addPage();
-          pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
-          heightLeft -= pageHeight;
-        }
-        
-        pdf.save('Divine_Biodata_' + biodataData.fullName.replace(/\s+/g, '_') + '.pdf');
+        const fullName = biodataData.fullName || 'Biodata';
+        pdf.save('Divine_Biodata_' + fullName.replace(/\s+/g, '_') + '.pdf');
       } catch (err) {
         console.error('PDF error:', err);
         alert('Could not generate PDF. Please try again.');
@@ -1324,7 +1441,6 @@
       }
     });
 
-    // PNG Download
     document.getElementById('downloadPNG').addEventListener('click', async () => {
       const btn = document.getElementById('downloadPNG');
       const origHTML = btn.innerHTML;
@@ -1334,7 +1450,8 @@
       try {
         const canvas = await captureCard();
         const link = document.createElement('a');
-        link.download = 'Biodata_' + biodataData.fullName.replace(/\s+/g, '_') + '.png';
+        const fullName = biodataData.fullName || 'Biodata';
+        link.download = 'Biodata_' + fullName.replace(/\s+/g, '_') + '.png';
         link.href = canvas.toDataURL('image/png');
         link.click();
       } catch (err) {
@@ -1346,12 +1463,11 @@
       }
     });
 
-    // Print
     document.getElementById('printBtn').addEventListener('click', () => {
       window.print();
     });
 
-    // ===== KEYBOARD SHORTCUTS =====
+    // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
         e.preventDefault();
@@ -1363,9 +1479,67 @@
       }
     });
 
-    console.log('✨ Divine Shaadi Biodata Creator Ready! ✨');
+    // ===== INITIALIZATION =====
+    
+    // Set default values
+    const defaultValues = {
+      fullName: 'Vineet Kumar Sharma',
+      dob: '22 February 1995',
+      tob: '12:45 AM',
+      pob: 'Pune, Maharashtra',
+      birthName: 'Jeevan',
+      height: '5 ft 6 in',
+      complexion: 'Fair',
+      bloodGroup: 'A -ve',
+      motherTongue: 'Hindi',
+      diet: 'Vegetarian',
+      maritalStatus: 'Never Married',
+      hobbies: 'Reading, Traveling, Music',
+      education: 'B.Tech (Computer Science)',
+      occupation: 'Senior Software Engineer',
+      income: '18 LPA',
+      religion: 'Hindu',
+      caste: 'Kshatriya',
+      subCaste: 'Gaur',
+      gotra: 'Bharadwaj',
+      rashi: 'Mesh (Aries)',
+      nakshatra: 'Swati',
+      manglik: 'Manglik',
+      kuldevta: 'Maa Kali',
+      fatherName: 'Mr. Guru Kumar Sharma',
+      fatherOcc: 'Farmer & Businessman',
+      motherName: 'Mrs. Leena Sharma',
+      motherOcc: 'Homemaker',
+      brothers: '2 Elder (Married)',
+      sisters: '1 Elder, 1 Younger',
+      familyType: 'Joint Family',
+      nativePlace: 'Pune, Maharashtra',
+      mobile: '+91 98220 12345',
+      email: 'vineet.sharma@email.com',
+      currentAddr: '12, Greenwood Society, Datta Mandir Road, Wakad, Pune - 411057',
+      permAddr: 'Village Post - Devgarh, District - Satara, Maharashtra',
+      auspText: '॥ श्री गणेशाय नमः ॥',
+      footerText: '॥ शुभ विवाह मंगलमय हो ॥'
+    };
+
+    // Apply defaults
+    Object.keys(defaultValues).forEach(key => {
+      biodataData[key] = defaultValues[key];
+      const input = document.getElementById(key);
+      if (input) {
+        input.value = defaultValues[key];
+      }
+    });
+
+    // Initial render
+    applyTheme('cream-gold');
+    renderAllSections();
+
+    console.log('✨ Divine Shaadi Biodata - Smart Version Ready! ✨');
     console.log('🕉️ ॥ श्री गणेशाय नमः ॥ 🕉️');
-    console.log('💡 Tips: Ctrl+P for PDF | Ctrl+S for PNG');
+    console.log('💡 Smart Features: Empty fields are hidden automatically');
+    console.log('⌨️ Ctrl+P for PDF | Ctrl+S for PNG');
+    console.log('📊 Field counters show how many fields are filled');
   })();
 </script>
 </body>
