@@ -11,7 +11,7 @@
   <style>
     :root {
       --gold: #b8860b;
-      --gold-light: #d4a853;
+      --gold-light: #d4c5a0;
       --gold-pale: #f5e6c8;
       --maroon: #8b1a1a;
       --maroon-dark: #5c1010;
@@ -23,6 +23,7 @@
       --white: #ffffff;
       --green: #2d7a2d;
       --red: #c0392b;
+      --label-gold: #a68a42;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -55,12 +56,7 @@
       z-index: 100;
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
+    .logo-container { display: flex; align-items: center; gap: 12px; }
     .logo-symbol { font-size: 2rem; color: var(--gold); }
 
     .logo-main {
@@ -80,12 +76,7 @@
       font-weight: 500;
     }
 
-    .toolbar {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+    .toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 
     .btn {
       padding: 0.5rem 1.2rem;
@@ -130,17 +121,8 @@
       transform: translateY(-2px);
     }
 
-    .btn-add {
-      background: #2d7a2d;
-      color: #fff;
-      border: none;
-      font-weight: 600;
-    }
-
-    .btn-add:hover {
-      background: #3a9a3a;
-      transform: translateY(-2px);
-    }
+    .btn-add { background: #2d7a2d; color: #fff; font-weight: 600; }
+    .btn-add:hover { background: #3a9a3a; transform: translateY(-2px); }
 
     .btn-remove {
       background: #c0392b;
@@ -159,10 +141,7 @@
       flex-shrink: 0;
     }
 
-    .btn-remove:hover {
-      background: #e74c3c;
-      transform: scale(1.1);
-    }
+    .btn-remove:hover { background: #e74c3c; transform: scale(1.1); }
 
     .theme-select {
       padding: 0.5rem 1rem;
@@ -180,11 +159,7 @@
     .theme-select:hover { border-color: var(--gold); }
 
     /* MAIN LAYOUT */
-    .main-layout {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
+    .main-layout { display: flex; flex: 1; overflow: hidden; }
 
     /* FORM PANEL */
     .form-panel {
@@ -214,16 +189,10 @@
       gap: 8px;
       flex-wrap: wrap;
     }
-
     .section-heading:first-child { margin-top: 0; }
     .section-heading i { color: var(--gold); font-size: 0.9rem; }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .form-group.full { grid-column: 1 / -1; }
 
     .form-label {
@@ -268,11 +237,7 @@
       margin-bottom: 6px;
     }
 
-    .upload-area:hover {
-      border-color: var(--gold);
-      background: #fdf8f0;
-    }
-
+    .upload-area:hover { border-color: var(--gold); background: #fdf8f0; }
     .upload-icon { font-size: 1.5rem; color: var(--gold); margin-bottom: 4px; }
     .upload-text { font-size: 0.78rem; color: var(--text-medium); font-weight: 500; }
     .upload-hint { font-size: 0.65rem; color: #b0a090; margin-top: 2px; }
@@ -327,16 +292,10 @@
       border-color: var(--gold);
       box-shadow: 0 0 0 3px rgba(184,134,11,0.08);
     }
-
     .custom-field-row .field-label-input { flex: 1.2; }
     .custom-field-row .field-value-input { flex: 2; }
 
-    .add-field-buttons {
-      display: flex;
-      gap: 8px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
+    .add-field-buttons { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
 
     .quick-add-btn {
       padding: 0.4rem 0.8rem;
@@ -349,18 +308,10 @@
       transition: all 0.2s;
       white-space: nowrap;
     }
-
-    .quick-add-btn:hover {
-      background: var(--gold-pale);
-      border-color: var(--gold);
-    }
+    .quick-add-btn:hover { background: var(--gold-pale); border-color: var(--gold); }
 
     .empty-custom-message {
-      text-align: center;
-      color: #c4b8a8;
-      font-size: 0.8rem;
-      padding: 15px;
-      font-style: italic;
+      text-align: center; color: #c4b8a8; font-size: 0.8rem; padding: 15px; font-style: italic;
     }
 
     /* PREVIEW PANEL */
@@ -379,161 +330,137 @@
     .preview-panel::-webkit-scrollbar-track { background: #ede4d5; }
     .preview-panel::-webkit-scrollbar-thumb { background: #d4c5a0; border-radius: 10px; }
 
-    /* BIODATA CARD */
+    /* ====================================================
+       STRICT BULLETPROOF BIODATA CARD 
+       ==================================================== */
     .biodata-card {
-      background: #fefdf7;
-      width: 210mm;
-      min-height: 297mm;
+      background: #fffcf8;
+      width: 794px; /* Locked A4 Width */
+      min-height: 1123px; /* Locked A4 Height */
       height: max-content; /* Ensure container expands natively */
       box-shadow: 0 10px 40px rgba(0,0,0,0.15);
       position: relative;
       padding: 0;
       font-family: 'Cormorant Garamond', 'Playfair Display', serif;
       color: #1a1410;
+      overflow: visible; 
+      box-sizing: border-box;
+      margin: 0 auto;
     }
 
     .card-border {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      border: 2px solid #d4c5a0;
+      top: 12px; left: 12px; right: 12px; bottom: 12px;
+      border: 1px solid transparent;
       pointer-events: none;
       z-index: 1;
-      opacity: 0.5;
     }
 
     .card-inner {
       position: relative;
       z-index: 3;
-      padding: 25px 40px 30px;
+      padding: 35px 50px 40px;
     }
 
-    .top-auspicious {
-      text-align: center;
-      margin-bottom: 15px;
-    }
+    .top-auspicious { text-align: center; margin-bottom: 20px; }
 
-    .ganesh-icon-container {
-      display: inline-flex;
-      align-items: center;
+    .ganesh-icon-container { 
+      display: inline-flex; 
+      position: relative; 
+      margin-bottom: 5px; 
+      align-items: center; 
       justify-content: center;
-      position: relative;
-      margin-bottom: 8px;
-      width: 75px;
-      height: 75px;
     }
 
-    .ganesh-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 75px;
-      height: 75px;
-      background: radial-gradient(circle, rgba(212,168,83,0.25) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    /* Pure CSS/HTML Ganesha - 100% immune to html2canvas crashes */
+    /* Beautiful Default Purple Om Circle matching the reference image */
     .default-ganesh {
-      width: 65px; 
-      height: 65px; 
+      width: 50px; 
+      height: 50px; 
       display: flex; 
       align-items: center; 
       justify-content: center; 
-      border: 2.5px solid var(--gold); 
+      border: 2px solid #8e44ad; 
       border-radius: 50%; 
-      font-size: 32px; 
-      color: var(--gold);
-      background: #fefdf7;
+      font-size: 26px; 
+      color: #8e44ad; 
+      background: #fff; 
       z-index: 2;
     }
 
     .uploaded-ganesh {
-      width: 65px;
-      height: 65px;
-      object-fit: contain;
-      z-index: 2;
-      display: none;
+      width: 55px; height: 55px; object-fit: contain; z-index: 2; display: none;
     }
 
     .shubh-ganesh-text {
       font-family: 'Tiro Devanagari Hindi', serif;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: var(--maroon);
       letter-spacing: 2px;
       font-weight: 600;
-      margin-top: 5px;
-    }
-
-    .gold-line {
-      width: 100px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 6px auto 0;
+      margin-top: 10px;
     }
 
     .biodata-main-title {
       text-align: center;
       font-family: 'Great Vibes', cursive;
-      font-size: 2.6rem;
+      font-size: 3.2rem;
       color: var(--maroon);
       font-weight: 400;
-      margin: 5px 0 18px;
-      letter-spacing: 2px;
+      margin: 5px 0 25px;
+      letter-spacing: 1px;
     }
 
+    /* Strict Section Dividers */
     .section-divider {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 14px 0 10px;
+      display: flex; 
+      align-items: center; 
+      gap: 10px; 
+      margin: 18px 0 14px;
     }
-
     .divider-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #d4c5a0, transparent);
+      flex: 1; 
+      height: 1px; 
+      background: #e4d8bc;
     }
-
     .divider-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.95rem;
+      font-family: 'Playfair Display', serif; 
+      font-size: 1.05rem; 
       font-weight: 700;
-      color: var(--maroon);
-      letter-spacing: 1.5px;
-      white-space: nowrap;
+      color: var(--maroon); 
+      letter-spacing: 2px; 
+      white-space: nowrap; 
       text-transform: uppercase;
     }
-
     .divider-dot {
-      width: 4px;
-      height: 4px;
-      background: var(--gold);
-      border-radius: 50%;
+      width: 4px; 
+      height: 4px; 
+      background: var(--gold); 
+      transform: rotate(45deg);
       flex-shrink: 0;
     }
 
-    /* Fixed Layout specific for html2canvas */
+    /* STRICT FLEXBOX ALIGNMENT - Mathematically locked */
     .personal-layout {
       display: flex;
       gap: 20px;
       align-items: flex-start;
       justify-content: space-between;
+      width: 100%;
     }
 
     .personal-info-grid { 
-      flex: 1; 
-      min-width: 0; 
+      width: calc(100% - 140px); /* Strictly defined remaining width */
+      flex-shrink: 0; 
     }
 
     .photo-container {
-      flex: 0 0 110px;
-      width: 110px;
-      text-align: center;
+      flex: 0 0 120px;
+      width: 120px; /* Locked width */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-top: 5px;
     }
 
     .profile-photo {
@@ -541,125 +468,127 @@
       height: 140px;
       object-fit: cover;
       object-position: center top;
-      border: 2px solid var(--gold-light);
-      border-radius: 3px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-      background: #f0e6d0;
-      display: block; 
+      border: 1px solid #d4c5a0;
+      padding: 3px;
+      background: #fff;
+      display: block;
     }
 
     .no-photo-placeholder {
       width: 110px;
       height: 140px;
-      border: 2px dashed #d4c5a0;
-      border-radius: 3px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #c4b8a8;
-      font-size: 0.7rem;
-      background: #fdf8f0;
-      text-align: center;
-      line-height: 1.3;
+      border: 1px dashed #d4c5a0;
+      padding: 3px;
+      display: flex; align-items: center; justify-content: center;
+      color: #c4b8a8; font-size: 0.7rem; background: #fffcf8;
+      text-align: center; line-height: 1.3;
     }
 
     .photo-label {
-      font-size: 0.6rem;
-      color: var(--text-light);
-      margin-top: 3px;
-      letter-spacing: 1px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem; 
+      color: #888; 
+      letter-spacing: 0.5px;
     }
 
-    /* STRICT ROW ALIGNMENT - Mathematically locked for PDF generation */
+    /* =========================================================
+       STRICT ROW ALIGNMENT - GUARANTEED 0% SHIFT
+       ========================================================= */
     .info-row {
       display: flex;
-      padding: 3px 0;
-      font-size: 0.85rem;
+      padding: 3.5px 0;
+      font-size: 0.88rem;
       line-height: 1.4;
       align-items: flex-start;
       width: 100%;
     }
 
     .info-label {
-      width: 35%; /* STRICT WIDTH */
-      color: var(--gold);
-      font-weight: 600;
+      width: 160px; /* Exact Pixel Lockdown */
+      color: var(--label-gold);
+      font-weight: 500;
       text-align: right;
-      padding-right: 5px;
-      letter-spacing: 0.3px;
+      padding-right: 8px;
+      letter-spacing: 0.5px;
+      font-family: 'Inter', sans-serif;
       flex-shrink: 0;
+      box-sizing: border-box;
     }
 
-    .info-colon { 
-      width: 15px; /* STRICT WIDTH */
-      color: #c4b8a8; 
+    .info-colon {
+      width: 12px; /* Exact Pixel Lockdown */
+      color: var(--label-gold);
       text-align: center;
       font-weight: bold;
       flex-shrink: 0;
+      box-sizing: border-box;
     }
 
     .info-value {
-      width: calc(65% - 15px); /* STRICT WIDTH */
-      color: #1a1410;
+      width: calc(100% - 172px); /* Remaining space lock */
+      color: #333; 
       font-weight: 500;
       text-align: left;
-      padding-left: 5px;
-      flex-shrink: 0;
+      padding-left: 8px;
       word-break: break-word;
+      font-family: 'Inter', sans-serif;
+      flex-shrink: 0;
+      box-sizing: border-box;
     }
 
     .bottom-auspicious {
-      text-align: center;
-      margin-top: 18px;
-      padding-top: 10px;
-      border-top: 1px solid #e8dcc8;
+      text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px solid #f0e8d5;
     }
-
     .mangalmay-text {
-      font-family: 'Tiro Devanagari Hindi', serif;
-      color: var(--maroon);
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      font-weight: 500;
+      font-family: 'Tiro Devanagari Hindi', serif; color: var(--maroon);
+      font-size: 0.95rem; letter-spacing: 1px; font-weight: 600;
     }
-
     .shubh-symbols {
-      color: var(--gold);
-      font-size: 0.65rem;
-      letter-spacing: 4px;
-      margin-top: 3px;
+      color: var(--gold-light); font-size: 0.75rem; letter-spacing: 4px; margin-top: 5px;
     }
 
-    @media (max-width: 1000px) {
-      .main-layout { flex-direction: column; }
-      .form-panel, .preview-panel { width: 100%; min-width: 100%; max-height: 50vh; }
-      .biodata-card { width: 100%; min-height: auto; transform: scale(1); }
-      .card-inner { padding: 15px 20px; }
+    /* Custom Toast Notification */
+    .custom-toast {
+      display: none;
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #c0392b;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      z-index: 9999;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      align-items: center;
+      gap: 10px;
     }
 
+    /* Print specific layout */
     @media print {
       body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
       .header, .form-panel { display: none !important; }
       .preview-panel {
-        width: 100% !important;
-        padding: 0 !important;
-        background: #fff !important;
-        overflow: visible !important;
+        width: 100% !important; padding: 0 !important; background: #fff !important; display: block !important;
       }
       .biodata-card {
-        box-shadow: none !important;
-        margin: 0 !important;
-        width: 210mm !important;
-        min-height: 297mm !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        box-shadow: none !important; margin: 0 auto !important;
+        width: 794px !important; min-height: 1123px !important;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
       }
-      .card-border { border: 2px solid #d4c5a0 !important; }
       @page { size: A4; margin: 0; }
     }
   </style>
 </head>
 <body>
+
+<!-- Toast Notification -->
+<div id="toastMessage" class="custom-toast">
+  <i id="toastIcon" class="fas fa-exclamation-circle"></i>
+  <span id="toastText">Message here</span>
+</div>
 
 <div class="app-container">
   <!-- HEADER -->
@@ -742,43 +671,35 @@
       <div class="form-grid">
         <div class="form-group full">
           <label class="form-label">Full Name</label>
-          <input type="text" id="fullName" class="form-input personal-field" value="Vineet Kumar Sharma">
+          <input type="text" id="fullName" class="form-input personal-field">
         </div>
         <div class="form-group">
           <label class="form-label">Date of Birth</label>
-          <input type="text" id="dob" class="form-input personal-field" value="22 February 1995">
+          <input type="text" id="dob" class="form-input personal-field">
         </div>
         <div class="form-group">
           <label class="form-label">Time of Birth</label>
-          <input type="text" id="tob" class="form-input personal-field" value="12:45 AM">
+          <input type="text" id="tob" class="form-input personal-field">
         </div>
         <div class="form-group">
           <label class="form-label">Place of Birth</label>
-          <input type="text" id="pob" class="form-input personal-field" value="Pune, Maharashtra">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Birth Name</label>
-          <input type="text" id="birthName" class="form-input personal-field" value="Jeevan">
+          <input type="text" id="pob" class="form-input personal-field">
         </div>
         <div class="form-group">
           <label class="form-label">Height</label>
-          <input type="text" id="height" class="form-input personal-field" value="5 ft 6 in">
+          <input type="text" id="height" class="form-input personal-field">
         </div>
         <div class="form-group">
           <label class="form-label">Complexion</label>
-          <input type="text" id="complexion" class="form-input personal-field" value="Fair">
+          <input type="text" id="complexion" class="form-input personal-field">
         </div>
         <div class="form-group">
           <label class="form-label">Blood Group</label>
-          <input type="text" id="bloodGroup" class="form-input personal-field" value="A -ve">
+          <input type="text" id="bloodGroup" class="form-input personal-field">
         </div>
         <div class="form-group">
           <label class="form-label">Mother Tongue</label>
-          <input type="text" id="motherTongue" class="form-input personal-field" value="Hindi">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Diet</label>
-          <input type="text" id="diet" class="form-input personal-field" value="Vegetarian">
+          <input type="text" id="motherTongue" class="form-input personal-field">
         </div>
         <div class="form-group">
           <label class="form-label">Marital Status</label>
@@ -791,19 +712,19 @@
         </div>
         <div class="form-group">
           <label class="form-label">Hobbies</label>
-          <input type="text" id="hobbies" class="form-input personal-field" value="Reading, Traveling, Music">
+          <input type="text" id="hobbies" class="form-input personal-field">
         </div>
-        <div class="form-group">
+        <div class="form-group full">
           <label class="form-label">Education</label>
-          <input type="text" id="education" class="form-input personal-field" value="B.Tech (Computer Science)">
+          <input type="text" id="education" class="form-input personal-field">
         </div>
-        <div class="form-group">
+        <div class="form-group full">
           <label class="form-label">Occupation</label>
-          <input type="text" id="occupation" class="form-input personal-field" value="Senior Software Engineer">
+          <input type="text" id="occupation" class="form-input personal-field">
         </div>
-        <div class="form-group">
+        <div class="form-group full">
           <label class="form-label">Annual Income</label>
-          <input type="text" id="income" class="form-input personal-field" value="18 LPA">
+          <input type="text" id="income" class="form-input personal-field">
         </div>
       </div>
 
@@ -813,54 +734,41 @@
         <span class="field-counter" id="religiousCount">0/8</span>
       </div>
       <div class="form-grid">
-        <div class="form-group"><label class="form-label">Religion</label><input type="text" id="religion" class="form-input religious-field" value="Hindu"></div>
-        <div class="form-group"><label class="form-label">Caste</label><input type="text" id="caste" class="form-input religious-field" value="Kshatriya"></div>
-        <div class="form-group"><label class="form-label">Sub-Caste</label><input type="text" id="subCaste" class="form-input religious-field" value="Gaur"></div>
-        <div class="form-group"><label class="form-label">Gotra</label><input type="text" id="gotra" class="form-input religious-field" value="Bharadwaj"></div>
-        <div class="form-group"><label class="form-label">Rashi</label><input type="text" id="rashi" class="form-input religious-field" value="Mesh (Aries)"></div>
-        <div class="form-group"><label class="form-label">Nakshatra</label><input type="text" id="nakshatra" class="form-input religious-field" value="Swati"></div>
-        <div class="form-group"><label class="form-label">Manglik</label><input type="text" id="manglik" class="form-input religious-field" value="Manglik"></div>
-        <div class="form-group"><label class="form-label">Kuldevta</label><input type="text" id="kuldevta" class="form-input religious-field" value="Maa Kali"></div>
+        <div class="form-group"><label class="form-label">Religion</label><input type="text" id="religion" class="form-input religious-field"></div>
+        <div class="form-group"><label class="form-label">Caste</label><input type="text" id="caste" class="form-input religious-field"></div>
+        <div class="form-group"><label class="form-label">Gotra</label><input type="text" id="gotra" class="form-input religious-field"></div>
+        <div class="form-group"><label class="form-label">Rashi</label><input type="text" id="rashi" class="form-input religious-field"></div>
+        <div class="form-group full"><label class="form-label">Kuldevta</label><input type="text" id="kuldevta" class="form-input religious-field"></div>
+        <div class="form-group"><label class="form-label">Sub-Caste</label><input type="text" id="subCaste" class="form-input religious-field" placeholder="Optional"></div>
+        <div class="form-group"><label class="form-label">Nakshatra</label><input type="text" id="nakshatra" class="form-input religious-field" placeholder="Optional"></div>
+        <div class="form-group"><label class="form-label">Manglik</label><input type="text" id="manglik" class="form-input religious-field" placeholder="Optional"></div>
       </div>
 
       <!-- Family -->
       <div class="section-heading">
-        <i class="fas fa-home"></i> 👨‍👩‍👧‍👦 Family
+        <i class="fas fa-home"></i> 👨‍👩‍👧‍👦 Family Details
         <span class="field-counter" id="familyCount">0/8</span>
       </div>
       <div class="form-grid">
-        <div class="form-group"><label class="form-label">Father's Name</label><input type="text" id="fatherName" class="form-input family-field" value="Mr. Guru Kumar Sharma"></div>
-        <div class="form-group"><label class="form-label">Father's Occ.</label><input type="text" id="fatherOcc" class="form-input family-field" value="Farmer & Businessman"></div>
-        <div class="form-group"><label class="form-label">Mother's Name</label><input type="text" id="motherName" class="form-input family-field" value="Mrs. Leena Sharma"></div>
-        <div class="form-group"><label class="form-label">Mother's Occ.</label><input type="text" id="motherOcc" class="form-input family-field" value="Homemaker"></div>
-        <div class="form-group"><label class="form-label">Brothers</label><input type="text" id="brothers" class="form-input family-field" value="2 Elder (Married)"></div>
-        <div class="form-group"><label class="form-label">Sisters</label><input type="text" id="sisters" class="form-input family-field" value="1 Elder, 1 Younger"></div>
-        <div class="form-group"><label class="form-label">Family Type</label><input type="text" id="familyType" class="form-input family-field" value="Joint Family"></div>
-        <div class="form-group"><label class="form-label">Native Place</label><input type="text" id="nativePlace" class="form-input family-field" value="Pune, Maharashtra"></div>
+        <div class="form-group full"><label class="form-label">Father's Name</label><input type="text" id="fatherName" class="form-input family-field"></div>
+        <div class="form-group full"><label class="form-label">Father's Occ.</label><input type="text" id="fatherOcc" class="form-input family-field"></div>
+        <div class="form-group full"><label class="form-label">Mother's Name</label><input type="text" id="motherName" class="form-input family-field"></div>
+        <div class="form-group full"><label class="form-label">Mother's Occ.</label><input type="text" id="motherOcc" class="form-input family-field"></div>
+        <div class="form-group"><label class="form-label">Brothers</label><input type="text" id="brothers" class="form-input family-field"></div>
+        <div class="form-group"><label class="form-label">Sisters</label><input type="text" id="sisters" class="form-input family-field" placeholder="Optional"></div>
+        <div class="form-group full"><label class="form-label">Native Place</label><input type="text" id="nativePlace" class="form-input family-field"></div>
+        <div class="form-group full"><label class="form-label">Family Type</label><input type="text" id="familyType" class="form-input family-field" placeholder="Optional"></div>
       </div>
 
       <!-- ===== CUSTOM FIELDS SECTION ===== -->
       <div class="section-heading">
-        <i class="fas fa-plus-circle"></i> ✨ Additional Custom Fields
+        <!-- <i class="fas fa-plus-circle"></i> ✨ Additional Information -->
         <span class="field-counter" id="customCount">0 fields</span>
       </div>
-      <p style="font-size:0.7rem; color:#888; margin-bottom:8px;">
-        Add any extra information - Grandfather, Grandmother, Uncle, Achievements, etc.
-      </p>
       
-      <!-- Quick Add Buttons -->
       <div class="add-field-buttons">
-        <button class="quick-add-btn" onclick="addCustomField('Paternal Grandfather', '')">👴 Paternal Grandfather</button>
-        <button class="quick-add-btn" onclick="addCustomField('Paternal Grandmother', '')">👵 Paternal Grandmother</button>
         <button class="quick-add-btn" onclick="addCustomField('Maternal Grandfather', '')">👴 Maternal Grandfather</button>
         <button class="quick-add-btn" onclick="addCustomField('Maternal Grandmother', '')">👵 Maternal Grandmother</button>
-        <button class="quick-add-btn" onclick="addCustomField('Mama (Uncle)', '')">👨 Mama (Uncle)</button>
-        <button class="quick-add-btn" onclick="addCustomField('Chacha (Uncle)', '')">👨 Chacha (Uncle)</button>
-        <button class="quick-add-btn" onclick="addCustomField('Bua (Aunt)', '')">👩 Bua (Aunt)</button>
-        <button class="quick-add-btn" onclick="addCustomField('Mausi (Aunt)', '')">👩 Mausi (Aunt)</button>
-        <button class="quick-add-btn" onclick="addCustomField('Achievements', '')">🏆 Achievements</button>
-        <button class="quick-add-btn" onclick="addCustomField('About Me', '')">💬 About Me</button>
-        <button class="quick-add-btn" onclick="addCustomField('Partner Preference', '')">💑 Partner Preference</button>
       </div>
 
       <!-- Custom Fields Container -->
@@ -875,15 +783,15 @@
       </button>
       
       <!-- Contact -->
-      <div class="section-heading">
-        <i class="fas fa-phone"></i> 📞 Contact
+      <div class="section-heading" style="margin-top:20px;">
+        <i class="fas fa-phone"></i> 📞 Contact Details
         <span class="field-counter" id="contactCount">0/4</span>
       </div>
       <div class="form-grid">
-        <div class="form-group"><label class="form-label">Mobile</label><input type="text" id="mobile" class="form-input contact-field" value="+91 98220 12345"></div>
-        <div class="form-group"><label class="form-label">Email</label><input type="text" id="email" class="form-input contact-field" value="vineet.sharma@email.com"></div>
-        <div class="form-group full"><label class="form-label">Current Address</label><input type="text" id="currentAddr" class="form-input contact-field" value="12, Greenwood Society, Wakad, Pune - 411057"></div>
-        <div class="form-group full"><label class="form-label">Permanent Address</label><input type="text" id="permAddr" class="form-input contact-field" value="Village Devgarh, District Satara, Maharashtra"></div>
+        <div class="form-group"><label class="form-label">Mobile</label><input type="text" id="mobile" class="form-input contact-field"></div>
+        <div class="form-group"><label class="form-label">Email</label><input type="text" id="email" class="form-input contact-field"></div>
+        <div class="form-group full"><label class="form-label">Current Address</label><input type="text" id="currentAddr" class="form-input contact-field"></div>
+        <div class="form-group full"><label class="form-label">Permanent Address</label><input type="text" id="permAddr" class="form-input contact-field" placeholder="Optional"></div>
       </div>
 
       <br><br>
@@ -892,21 +800,16 @@
     <!-- PREVIEW PANEL -->
     <div class="preview-panel" id="previewPanel">
       <div class="biodata-card" id="biodataCard">
-        <div class="card-border"></div>
+        <div class="card-border" id="cardBorder"></div>
         <div class="card-inner">
           
           <div class="top-auspicious" id="topAuspicious">
             <div class="ganesh-icon-container" id="ganeshIconContainer">
-              <div class="ganesh-glow"></div>
-              <!-- Removed SVG logic entirely to prevent html2canvas crashing -->
-              <div id="defaultGanesh" class="default-ganesh">🕉️</div>
+              <div id="defaultGanesh" class="default-ganesh">ॐ</div>
               <img id="previewHeaderIcon" class="uploaded-ganesh" alt="Divine Symbol">
             </div>
             <div id="previewAuspText" class="shubh-ganesh-text">॥ श्री गणेशाय नमः ॥</div>
-            <div class="gold-line"></div>
           </div>
-
-          <div class="biodata-main-title">Marriage Biodata</div>
 
           <div id="personalSection">
             <div class="section-divider">
@@ -914,6 +817,7 @@
               <span class="divider-title">Personal Details</span>
               <span class="divider-line"></span><span class="divider-dot"></span>
             </div>
+            
             <div class="personal-layout">
               <div class="personal-info-grid" id="previewPersonal"></div>
               <div class="photo-container" id="photoContainer">
@@ -961,7 +865,7 @@
 
           <div class="bottom-auspicious" id="bottomAuspicious">
             <div id="previewFooter" class="mangalmay-text">॥ शुभ विवाह मंगलमय हो ॥</div>
-            <div class="shubh-symbols">🪷 ✦ 🪷</div>
+            <div class="shubh-symbols" id="shubhSymbols">🪷 ✦ 🪷</div>
           </div>
 
         </div>
@@ -974,28 +878,41 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 (function() {
+  
+  // Custom Toast Notification System
+  function showToast(message, isSuccess = false) {
+    const toast = document.getElementById('toastMessage');
+    const text = document.getElementById('toastText');
+    const icon = document.getElementById('toastIcon');
+    
+    toast.style.background = isSuccess ? '#2d7a2d' : '#c0392b';
+    icon.className = isSuccess ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+    text.textContent = message;
+    
+    toast.style.display = 'flex';
+    setTimeout(() => { toast.style.display = 'none'; }, 4000);
+  }
+
   const fieldDefs = {
     personal: {
       fullName: 'Full Name', dob: 'Date of Birth', tob: 'Time of Birth',
-      pob: 'Place of Birth', birthName: 'Birth Name', height: 'Height',
-      complexion: 'Complexion', bloodGroup: 'Blood Group', motherTongue: 'Mother Tongue',
-      diet: 'Diet', maritalStatus: 'Marital Status', hobbies: 'Hobbies',
-      education: 'Education', occupation: 'Occupation', income: 'Annual Income'
+      pob: 'Place of Birth', height: 'Height', complexion: 'Complexion', 
+      bloodGroup: 'Blood Group', motherTongue: 'Mother Tongue',
+      maritalStatus: 'Marital Status', hobbies: 'Hobbies',
+      education: 'Education', occupation: 'Occupation', income: 'Annual Income',
+      birthName: 'Birth Name', diet: 'Diet'
     },
     religious: {
-      religion: 'Religion', caste: 'Caste', subCaste: 'Sub-Caste',
-      gotra: 'Gotra', rashi: 'Rashi', nakshatra: 'Nakshatra',
-      manglik: 'Manglik', kuldevta: 'Kuldevta'
+      religion: 'Religion', caste: 'Caste', gotra: 'Gotra', rashi: 'Rashi', 
+      kuldevta: 'Kuldevta', subCaste: 'Sub-Caste', nakshatra: 'Nakshatra', manglik: 'Manglik'
     },
     family: {
       fatherName: "Father's Name", fatherOcc: "Father's Occupation",
       motherName: "Mother's Name", motherOcc: "Mother's Occupation",
-      brothers: 'Brothers', sisters: 'Sisters', familyType: 'Family Type',
-      nativePlace: 'Native Place'
+      brothers: 'Brothers', nativePlace: 'Native Place', sisters: 'Sisters', familyType: 'Family Type'
     },
     contact: {
-      mobile: 'Mobile', email: 'Email', currentAddr: 'Current Address',
-      permAddr: 'Permanent Address'
+      mobile: 'Mobile', email: 'Email', currentAddr: 'Current Address', permAddr: 'Permanent Address'
     }
   };
 
@@ -1003,26 +920,23 @@
   let customFields = []; 
   let photoDataUrl = null;
 
-  // Initialize
   Object.values(fieldDefs).forEach(cat => {
     Object.keys(cat).forEach(key => { data[key] = ''; });
   });
 
   const defaults = {
-    fullName: 'Vineet Kumar Sharma', dob: '22 February 1995', tob: '12:45 AM',
-    pob: 'Pune, Maharashtra', birthName: 'Jeevan', height: '5 ft 6 in',
-    complexion: 'Fair', bloodGroup: 'A -ve', motherTongue: 'Hindi',
-    diet: 'Vegetarian', maritalStatus: 'Never Married', hobbies: 'Reading, Traveling, Music',
-    education: 'B.Tech (Computer Science)', occupation: 'Senior Software Engineer', income: '18 LPA',
-    religion: 'Hindu', caste: 'Kshatriya', subCaste: 'Gaur', gotra: 'Bharadwaj',
-    rashi: 'Mesh (Aries)', nakshatra: 'Swati', manglik: 'Manglik', kuldevta: 'Maa Kali',
-    fatherName: 'Mr. Guru Kumar Sharma', fatherOcc: 'Farmer & Businessman',
-    motherName: 'Mrs. Leena Sharma', motherOcc: 'Homemaker',
-    brothers: '2 Elder (Married)', sisters: '1 Elder, 1 Younger',
-    familyType: 'Joint Family', nativePlace: 'Pune, Maharashtra',
-    mobile: '+91 98220 12345', email: 'vineet.sharma@email.com',
-    currentAddr: '12, Greenwood Society, Wakad, Pune - 411057',
-    permAddr: 'Village Devgarh, District Satara, Maharashtra',
+    fullName: 'Mani', dob: '27 December 2002', tob: '12:45 AM',
+    pob: 'Siwan, Bihar', height: '5 ft 7 in', complexion: 'Fair',
+    bloodGroup: 'B -ve', motherTongue: 'Hindi', maritalStatus: 'Never Married', 
+    hobbies: 'Reading, Traveling, Music', education: 'B.Tech (Computer Science)', 
+    occupation: 'Software Engineer', income: '5 LPA',
+    religion: 'Hindu', caste: 'Bhumihar', gotra: 'Parasar',
+    rashi: 'Capricorn (Makar)', kuldevta: 'Shitala devi',
+    fatherName: 'Mukesh Singh', fatherOcc: 'Businessman',
+    motherName: 'Savita Devi', motherOcc: 'Homemaker',
+    brothers: '2', nativePlace: 'Manjhagarh jantoli (Bihar)',
+    mobile: '7622047483', email: 'msms5476m@email.com',
+    currentAddr: '69, balaji green City kadodara near noorie media kadodara, Surat - 394327',
     auspText: '॥ श्री गणेशाय नमः ॥',
     footerText: '॥ शुभ विवाह मंगलमय हो ॥'
   };
@@ -1034,15 +948,14 @@
   });
 
   customFields = [
-    {label: 'Paternal Grandfather', value: 'Late Shri Ramprasad Sharma'},
-    {label: 'Paternal Grandmother', value: 'Late Smt. Ganga Devi'},
-    {label: 'Achievements', value: 'Gold Medalist in College'}
+    {label: 'Maternal Grandfather', value: 'Awdhesh Singh'},
+    {label: 'Maternal Grandmother', value: 'Shanti Devi'}
   ];
 
   const themes = {
-    'cream-gold': { bg: '#fefdf7', text: '#1a1410', accent: '#b8860b', maroon: '#8b1a1a' },
-    'white-maroon': { bg: '#ffffff', text: '#1a1410', accent: '#8b1a1a', maroon: '#5c1010' },
-    'ivory-saffron': { bg: '#fffef5', text: '#1a1410', accent: '#d4840b', maroon: '#a0522d' }
+    'cream-gold': { bg: '#fefdf7', text: '#333333', label: '#a68a42', maroon: '#8b1a1a', border: '#d4c5a0' },
+    'white-maroon': { bg: '#ffffff', text: '#333333', label: '#8b1a1a', maroon: '#5c1010', border: '#d4c5a0' },
+    'ivory-saffron': { bg: '#fffef5', text: '#333333', label: '#d4840b', maroon: '#a0522d', border: '#e8d2b2' }
   };
 
   document.getElementById('themeSelect').addEventListener('change', function(e) {
@@ -1051,17 +964,16 @@
     card.style.backgroundColor = t.bg;
     card.style.color = t.text;
     
-    // Also update clone background immediately if it exists
+    document.documentElement.style.setProperty('--label-gold', t.label);
+    document.documentElement.style.setProperty('--maroon', t.maroon);
+    
     document.querySelectorAll('.divider-title').forEach(el => el.style.color = t.maroon);
     document.querySelectorAll('.shubh-ganesh-text').forEach(el => el.style.color = t.maroon);
     document.querySelectorAll('.biodata-main-title').forEach(el => el.style.color = t.maroon);
-    document.querySelectorAll('.info-label').forEach(el => el.style.color = t.accent);
-    document.querySelectorAll('.mangalmay-text').forEach(el => el.style.color = t.maroon);
-    document.querySelectorAll('.divider-dot').forEach(el => el.style.background = t.accent);
-    document.querySelectorAll('.default-ganesh').forEach(el => {
-       el.style.color = t.accent;
-       el.style.borderColor = t.accent;
-    });
+    document.querySelectorAll('.info-label').forEach(el => el.style.color = t.label);
+    document.querySelectorAll('.info-colon').forEach(el => el.style.color = t.label);
+    document.querySelectorAll('.info-value').forEach(el => el.style.color = t.text);
+    document.querySelectorAll('.divider-dot').forEach(el => el.style.background = t.label);
   });
 
   function getFilled(category) {
@@ -1073,9 +985,11 @@
     return result;
   }
 
+  // STRICT FLEXBOX ALIGNMENT FIX
   function rowSingle(label, value) {
     if (!value || value.trim() === '') return '';
-    return `<div class="info-row">
+    return `
+    <div class="info-row">
       <div class="info-label">${label}</div>
       <div class="info-colon">:</div>
       <div class="info-value">${value}</div>
@@ -1105,21 +1019,23 @@
     if (photoDataUrl) {
       container.innerHTML = `<img class="profile-photo" src="${photoDataUrl}" alt="Profile Photo"><div class="photo-label">Passport Size</div>`;
     } else {
-      container.innerHTML = `<div class="no-photo-placeholder">📷<br>No Photo<br>Uploaded</div><div class="photo-label">Optional</div>`;
+      container.innerHTML = `<div class="no-photo-placeholder">📷<br>No Photo<br>Uploaded</div><div class="photo-label">Passport Size</div>`;
     }
   }
 
+  // FIXED: Attached directly to window to be accessible from inline HTML
   window.addCustomField = function(label, value) {
     customFields.push({label: label || '', value: value || ''});
     renderCustomFieldsForm();
     renderAll();
   };
 
-  function removeCustomField(index) {
+  // FIXED: Attached directly to window to be accessible from inline HTML
+  window.removeCustomField = function(index) {
     customFields.splice(index, 1);
     renderCustomFieldsForm();
     renderAll();
-  }
+  };
 
   function renderCustomFieldsForm() {
     const container = document.getElementById('customFieldsContainer');
@@ -1136,7 +1052,7 @@
       row.innerHTML = `
         <input type="text" class="field-label-input" placeholder="Field Label" value="${field.label}" data-index="${index}" data-type="label">
         <input type="text" class="field-value-input" placeholder="Field Value" value="${field.value}" data-index="${index}" data-type="value">
-        <button class="btn-remove" onclick="removeCustomField(${index})" title="Remove">
+        <button class="btn-remove" onclick="window.removeCustomField(${index})" title="Remove">
           <i class="fas fa-trash"></i>
         </button>
       `;
@@ -1242,40 +1158,39 @@
     }
   });
 
-
   // ==========================================
-  // BULLETPROOF CAPTURE METHOD (CLONE TO BODY)
+  // SAFE BULLETPROOF CAPTURE METHOD 
   // ==========================================
   async function captureCard() {
     const originalCard = document.getElementById('biodataCard');
-    
-    // 1. Clone the node completely to bypass scroll bounds
     const cardClone = originalCard.cloneNode(true);
     
-    // 2. Append to body invisibly at full size
     document.body.appendChild(cardClone);
     cardClone.style.position = 'absolute';
     cardClone.style.top = '-9999px';
-    cardClone.style.left = '-9999px';
-    cardClone.style.width = '210mm';
-    cardClone.style.height = 'auto'; // allow it to expand fully
+    cardClone.style.left = '0';
+    cardClone.style.width = '794px'; 
+    cardClone.style.height = 'auto'; 
     cardClone.style.margin = '0';
     cardClone.style.overflow = 'visible';
     
-    // Wait for fonts/styles to apply to clone
+    // Explicitly copy theme colors to the clone to ensure they carry over
+    const t = themes[document.getElementById('themeSelect').value] || themes['cream-gold'];
+    cardClone.style.backgroundColor = t.bg;
+    cardClone.style.color = t.text;
+    
     await new Promise(r => setTimeout(r, 150));
 
-    const bgColor = window.getComputedStyle(originalCard).backgroundColor;
-
     try {
-      const canvas = await html2canvas(cardClone, {
+      const canvas = await window.html2canvas(cardClone, {
         scale: 2,
-        backgroundColor: bgColor || '#fefdf7',
+        backgroundColor: t.bg,
         useCORS: true,
         allowTaint: true,
-        logging: false
+        logging: false,
+        width: 794,
+        windowWidth: 794 
       });
-      // 3. Cleanup clone
       document.body.removeChild(cardClone);
       return canvas;
     } catch (err) {
@@ -1285,64 +1200,81 @@
   }
 
   // ==========================================
-  // DOWNLOAD PDF
+  // EXPORT FUNCTIONS WITH SAFEGUARDS
   // ==========================================
   document.getElementById('downloadPDF').addEventListener('click', async () => {
     const btn = document.getElementById('downloadPDF');
     const origHTML = btn.innerHTML;
+    
+    if (typeof window.html2canvas === 'undefined' || typeof window.jspdf === 'undefined') {
+      showToast("Required libraries are still loading. Please try again.");
+      return;
+    }
+
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating PDF...';
     btn.disabled = true;
 
     try {
-      // Wait for fonts
-      await document.fonts.ready;
+      // Safe font loading
+      if(document.fonts && document.fonts.ready) {
+        try { await document.fonts.ready; } catch(e) { console.warn(e); }
+      }
       
       const canvas = await captureCard();
+      if(!canvas) throw new Error("Canvas generation failed");
+
       const imgData = canvas.toDataURL('image/png', 1.0);
       
       const { jsPDF } = window.jspdf;
-      
-      const pdfWidth = 210; // A4 standard mm width
-      // Calculate PERFECT height relative to generated canvas ratio
+      const pdfWidth = 210; 
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       
-      // CREATE PDF EXACTLY TO REQUIRED SIZE (No squashing, no cutoff)
       const pdf = new jsPDF('p', 'mm', [pdfWidth, pdfHeight]);
       pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
       
       const name = (data.fullName || 'Biodata').replace(/\s+/g, '_');
       pdf.save('Marriage_Biodata_' + name + '.pdf');
       
+      showToast("PDF Downloaded Successfully!", true);
     } catch (err) {
-      console.error('PDF Generation Error details:', err);
-      alert('Error creating PDF. Please refresh the page and try again.');
+      console.error('PDF Error:', err);
+      showToast('Error creating PDF. Please refresh and try again.');
     } finally {
       btn.innerHTML = origHTML;
       btn.disabled = false;
     }
   });
 
-  // ==========================================
-  // DOWNLOAD PNG
-  // ==========================================
   document.getElementById('downloadPNG').addEventListener('click', async () => {
     const btn = document.getElementById('downloadPNG');
     const origHTML = btn.innerHTML;
+
+    if (typeof window.html2canvas === 'undefined') {
+      showToast("Required libraries are still loading. Please try again.");
+      return;
+    }
+
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Image...';
     btn.disabled = true;
 
     try {
-      await document.fonts.ready;
+      if(document.fonts && document.fonts.ready) {
+        try { await document.fonts.ready; } catch(e) { console.warn(e); }
+      }
       
       const canvas = await captureCard();
+      if(!canvas) throw new Error("Canvas generation failed");
+
       const link = document.createElement('a');
       const name = (data.fullName || 'Biodata').replace(/\s+/g, '_');
       link.download = 'Biodata_' + name + '.png';
       link.href = canvas.toDataURL('image/png', 1.0);
       link.click();
+      
+      showToast("Image Downloaded Successfully!", true);
     } catch (err) {
-      console.error('PNG Generation Error details:', err);
-      alert('Error creating image. Please refresh the page and try again.');
+      console.error('PNG Error:', err);
+      showToast('Error creating image. Please refresh and try again.');
     } finally {
       btn.innerHTML = origHTML;
       btn.disabled = false;
@@ -1352,14 +1284,8 @@
   document.getElementById('printBtn').addEventListener('click', () => { window.print(); });
 
   document.addEventListener('keydown', function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
-      e.preventDefault();
-      document.getElementById('downloadPDF').click();
-    }
-    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-      e.preventDefault();
-      document.getElementById('downloadPNG').click();
-    }
+    if ((e.ctrlKey || e.metaKey) && e.key === 'p') { e.preventDefault(); document.getElementById('downloadPDF').click(); }
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); document.getElementById('downloadPNG').click(); }
   });
 
   // Initial Load
